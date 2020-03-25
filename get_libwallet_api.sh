@@ -1,5 +1,5 @@
 #!/bin/bash
-COINEVO_URL=https://github.com/coinevo-project/coinevo.git
+COINEVO_URL=https://github.com/laugh26/coinevo.git
 COINEVO_BRANCH=master
 
 pushd $(pwd)
@@ -17,7 +17,7 @@ if [ ! -d $COINEVO_DIR/src ]; then
 fi
 git submodule update --remote
 git -C $COINEVO_DIR fetch
-git -C $COINEVO_DIR checkout v0.15.0.5
+git -C $COINEVO_DIR checkout master
 
 # get coinevo core tag
 pushd $COINEVO_DIR
