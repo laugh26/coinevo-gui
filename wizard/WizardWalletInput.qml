@@ -1,4 +1,4 @@
-// Copyright (c) 2014-2019, The Monero Project
+// Copyright (c) 2014-2019, The Coinevo Project
 // 
 // All rights reserved.
 // 
@@ -33,7 +33,7 @@ import QtQuick.Controls 2.0
 
 import "../js/Wizard.js" as Wizard
 import "../components"
-import "../components" as MoneroComponents
+import "../components" as CoinevoComponents
 
 GridLayout {
     Layout.fillWidth: true
@@ -59,7 +59,7 @@ GridLayout {
         walletName.text = defaultAccountName;
     }
 
-    MoneroComponents.LineEdit {
+    CoinevoComponents.LineEdit {
         id: walletName
         Layout.fillWidth: true
 
@@ -80,7 +80,7 @@ GridLayout {
         Component.onCompleted: walletName.error = !walletName.verify();
     }
 
-    MoneroComponents.LineEdit {
+    CoinevoComponents.LineEdit {
         id: walletLocation
         Layout.fillWidth: true
 

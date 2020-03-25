@@ -1,4 +1,4 @@
-// Copyright (c) 2018, The Monero Project
+// Copyright (c) 2018, The Coinevo Project
 //
 // All rights reserved.
 //
@@ -32,7 +32,7 @@ import QtQuick.Controls.Styles 1.4
 import QtQuick.Layouts 1.1
 import QtQuick.Dialogs 1.2
 
-import "../components" as MoneroComponents
+import "../components" as CoinevoComponents
 import coinevoComponents.Clipboard 1.0
 
 Rectangle {
@@ -94,23 +94,23 @@ Rectangle {
             standardButtons: StandardButton.Ok
         }
 
-        MoneroComponents.Label {
+        CoinevoComponents.Label {
             id: signTitleLabel
             fontSize: 24
             text: qsTr("Shared RingDB") + translationManager.emptyString
         }
 
-        MoneroComponents.TextPlain {
+        CoinevoComponents.TextPlain {
             text: qsTr("This page allows you to interact with the shared ring database. " +
                        "This database is meant for use by coinevo wallets as well as wallets from coinevo clones which reuse the coinevo keys.") + translationManager.emptyString
             wrapMode: Text.Wrap
             Layout.fillWidth: true
-            font.family: MoneroComponents.Style.fontRegular.name
+            font.family: CoinevoComponents.Style.fontRegular.name
             font.pixelSize: 14
-            color: MoneroComponents.Style.defaultFontColor
+            color: CoinevoComponents.Style.defaultFontColor
         }
 
-        MoneroComponents.LabelSubheader {
+        CoinevoComponents.LabelSubheader {
             Layout.fillWidth: true
             textFormat: Text.RichText
             text: "<style type='text/css'>a {text-decoration: none; color: #FF6C3C; font-size: 14px;}</style>" +
@@ -134,15 +134,15 @@ Rectangle {
             }
         }
 
-        MoneroComponents.TextPlain {
+        CoinevoComponents.TextPlain {
             textFormat: Text.RichText
-            font.family: MoneroComponents.Style.fontRegular.name
+            font.family: CoinevoComponents.Style.fontRegular.name
             font.pixelSize: 14
             text: qsTr("This sets which outputs are known to be spent, and thus not to be used as privacy placeholders in ring signatures. ") +
                   qsTr("You should only have to load a file when you want to refresh the list. Manual adding/removing is possible if needed.") + translationManager.emptyString
             wrapMode: Text.Wrap
             Layout.fillWidth: true;
-            color: MoneroComponents.Style.defaultFontColor
+            color: CoinevoComponents.Style.defaultFontColor
         }
 
         ColumnLayout {
@@ -160,7 +160,7 @@ Rectangle {
                 }
             }
 
-            MoneroComponents.LineEdit {
+            CoinevoComponents.LineEdit {
                 id: loadBlackballFileLine
                 Layout.fillWidth: true
                 fontSize: 16
@@ -176,7 +176,7 @@ Rectangle {
                 Layout.fillWidth: true
                 Layout.topMargin: 18
 
-                MoneroComponents.StandardButton {
+                CoinevoComponents.StandardButton {
                     id: selectBlackballFileButton
                     text: qsTr("Browse") + translationManager.emptyString
                     enabled: true
@@ -186,7 +186,7 @@ Rectangle {
                     }
                 }
 
-                MoneroComponents.StandardButton {
+                CoinevoComponents.StandardButton {
                     id: loadBlackballFileButton
                     text: qsTr("Load") + translationManager.emptyString
                     small: true
@@ -200,7 +200,7 @@ Rectangle {
             Layout.fillWidth: true
             columnSpacing: 20
 
-            MoneroComponents.LineEdit {
+            CoinevoComponents.LineEdit {
                 id: blackballOutputAmountLine
                 Layout.fillWidth: true
                 fontSize: 16
@@ -212,7 +212,7 @@ Rectangle {
                 validator: IntValidator { bottom: 0 }
             }
 
-            MoneroComponents.LineEdit {
+            CoinevoComponents.LineEdit {
                 id: blackballOutputOffsetLine
                 Layout.fillWidth: true
                 fontSize: 16
@@ -229,7 +229,7 @@ Rectangle {
             Layout.fillWidth: true
             Layout.topMargin: 18
 
-            MoneroComponents.StandardButton {
+            CoinevoComponents.StandardButton {
                 id: blackballButton
                 text: qsTr("Mark as spent") + translationManager.emptyString
                 small: true
@@ -237,7 +237,7 @@ Rectangle {
                 onClicked: appWindow.currentWallet.blackballOutput(blackballOutputAmountLine.text, blackballOutputOffsetLine.text)
             }
 
-            MoneroComponents.StandardButton {
+            CoinevoComponents.StandardButton {
                 id: unblackballButton
                 text: qsTr("Mark as unspent") + translationManager.emptyString
                 small: true
@@ -246,7 +246,7 @@ Rectangle {
             }
         }
 
-        MoneroComponents.LabelSubheader {
+        CoinevoComponents.LabelSubheader {
             Layout.fillWidth: true
             Layout.topMargin: 24
             textFormat: Text.RichText
@@ -272,17 +272,17 @@ Rectangle {
             }
         }
 
-        MoneroComponents.TextPlain {
+        CoinevoComponents.TextPlain {
             textFormat: Text.RichText
-            font.family: MoneroComponents.Style.fontRegular.name
+            font.family: CoinevoComponents.Style.fontRegular.name
             font.pixelSize: 14
-            text: qsTr("This records rings used by outputs spent on Monero on a key reusing chain, so that the same ring may be reused to avoid privacy issues.") + translationManager.emptyString
+            text: qsTr("This records rings used by outputs spent on Coinevo on a key reusing chain, so that the same ring may be reused to avoid privacy issues.") + translationManager.emptyString
             wrapMode: Text.Wrap
             Layout.fillWidth: true;
-            color: MoneroComponents.Style.defaultFontColor
+            color: CoinevoComponents.Style.defaultFontColor
         }
 
-        MoneroComponents.LineEdit {
+        CoinevoComponents.LineEdit {
             id: keyImageLine
             Layout.fillWidth: true
             fontSize: 16
@@ -301,7 +301,7 @@ Rectangle {
 
             ColumnLayout {
                 RowLayout {
-                    MoneroComponents.LineEdit {
+                    CoinevoComponents.LineEdit {
                         id: getRingLine
                         Layout.fillWidth: true
                         fontSize: 16
@@ -316,7 +316,7 @@ Rectangle {
                     Layout.fillWidth: true
                     Layout.topMargin: 18
 
-                    MoneroComponents.StandardButton {
+                    CoinevoComponents.StandardButton {
                         id: getRingButton
                         text: qsTr("Get Ring") + translationManager.emptyString
                         small: true
@@ -336,7 +336,7 @@ Rectangle {
 
             ColumnLayout {
                 RowLayout {
-                    MoneroComponents.LineEdit {
+                    CoinevoComponents.LineEdit {
                         id: setRingLine
                         Layout.fillWidth: true
                         fontSize: 16
@@ -352,7 +352,7 @@ Rectangle {
                     Layout.fillWidth: true
                     Layout.topMargin: 18
 
-                    MoneroComponents.StandardButton {
+                    CoinevoComponents.StandardButton {
                         id: setRingButton
                         text: qsTr("Set Ring") + translationManager.emptyString
                         small: true
@@ -370,7 +370,7 @@ Rectangle {
             columnSpacing: 20
             columns: 2
 
-            MoneroComponents.CheckBox {
+            CoinevoComponents.CheckBox {
                 id: segregatePreForkOutputs
                 checked: persistentSettings.segregatePreForkOutputs
                 text: qsTr("I intend to spend on key-reusing fork(s)") + translationManager.emptyString
@@ -382,7 +382,7 @@ Rectangle {
                 }
             }
 
-            MoneroComponents.CheckBox {
+            CoinevoComponents.CheckBox {
                 id: keyReuseMitigation2
                 checked: persistentSettings.keyReuseMitigation2
                 text: qsTr("I might want to spend on key-reusing fork(s)") + translationManager.emptyString
@@ -394,7 +394,7 @@ Rectangle {
                 }
             }
 
-            MoneroComponents.CheckBox {
+            CoinevoComponents.CheckBox {
                 id: setRingRelative
                 checked: true
                 text: qsTr("Relative") + translationManager.emptyString
@@ -408,7 +408,7 @@ Rectangle {
             columns: 2
             columnSpacing: 32
 
-            MoneroComponents.LineEdit {
+            CoinevoComponents.LineEdit {
                 id: segregationHeightLine
                 property bool edited: false
                 Layout.fillWidth: true

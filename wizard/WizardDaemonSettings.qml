@@ -1,4 +1,4 @@
-// Copyright (c) 2014-2019, The Monero Project
+// Copyright (c) 2014-2019, The Coinevo Project
 // 
 // All rights reserved.
 // 
@@ -32,7 +32,7 @@ import QtQuick.Layouts 1.2
 import QtQuick.Controls 2.0
 
 import "../js/Wizard.js" as Wizard
-import "../components" as MoneroComponents
+import "../components" as CoinevoComponents
 
 ColumnLayout {
     Layout.fillWidth: true
@@ -46,7 +46,7 @@ ColumnLayout {
         persistentSettings.bootstrapNodeAddress = bootstrapNodeEdit.daemonAddrText ? bootstrapNodeEdit.getAddress() : "";
     }
 
-    MoneroComponents.RadioButton {
+    CoinevoComponents.RadioButton {
         id: localNode
         Layout.fillWidth: true
         text: qsTr("Start a node automatically in background (recommended)") + translationManager.emptyString
@@ -67,7 +67,7 @@ ColumnLayout {
         Layout.topMargin: 8
         Layout.fillWidth: true
 
-        MoneroComponents.LineEdit {
+        CoinevoComponents.LineEdit {
             id: blockchainFolder
             Layout.fillWidth: true
 
@@ -95,8 +95,8 @@ ColumnLayout {
                 text: qsTr("Bootstrap node") + translationManager.emptyString
                 Layout.topMargin: 10
                 Layout.fillWidth: true
-                font.family: MoneroComponents.Style.fontRegular.name
-                color: MoneroComponents.Style.defaultFontColor
+                font.family: CoinevoComponents.Style.fontRegular.name
+                color: CoinevoComponents.Style.defaultFontColor
                 font.pixelSize: {
                     if(wizardController.layoutScale === 2 ){
                         return 22;
@@ -112,12 +112,12 @@ ColumnLayout {
             }
 
             Text {
-                text: qsTr("Additionally, you may specify a bootstrap node to use Monero immediately.") + translationManager.emptyString
+                text: qsTr("Additionally, you may specify a bootstrap node to use Coinevo immediately.") + translationManager.emptyString
                 Layout.topMargin: 4
                 Layout.fillWidth: true
 
-                font.family: MoneroComponents.Style.fontRegular.name
-                color: MoneroComponents.Style.dimmedFontColor
+                font.family: CoinevoComponents.Style.fontRegular.name
+                color: CoinevoComponents.Style.dimmedFontColor
 
                 font.pixelSize: {
                     if(wizardController.layoutScale === 2 ){
@@ -138,7 +138,7 @@ ColumnLayout {
             spacing: 8
             Layout.fillWidth: true
 
-            MoneroComponents.RemoteNodeEdit {
+            CoinevoComponents.RemoteNodeEdit {
                 id: bootstrapNodeEdit
                 Layout.minimumWidth: 300
                 //labelText: qsTr("Bootstrap node (leave blank if not wanted)") + translationManager.emptyString
@@ -156,7 +156,7 @@ ColumnLayout {
         }
     }
 
-    MoneroComponents.RadioButton {
+    CoinevoComponents.RadioButton {
         id: remoteNode
         Layout.fillWidth: true
         Layout.topMargin: 8
@@ -176,7 +176,7 @@ ColumnLayout {
         Layout.topMargin: 8
         Layout.fillWidth: true
 
-        MoneroComponents.RemoteNodeEdit {
+        CoinevoComponents.RemoteNodeEdit {
             id: remoteNodeEdit
             Layout.fillWidth: true
 

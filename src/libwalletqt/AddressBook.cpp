@@ -1,4 +1,4 @@
-// Copyright (c) 2014-2019, The Monero Project
+// Copyright (c) 2014-2019, The Coinevo Project
 //
 // All rights reserved.
 //
@@ -29,7 +29,7 @@
 #include "AddressBook.h"
 #include <QDebug>
 
-AddressBook::AddressBook(Monero::AddressBook *abImpl,QObject *parent)
+AddressBook::AddressBook(Coinevo::AddressBook *abImpl,QObject *parent)
   : QObject(parent), m_addressBookImpl(abImpl)
 {
     getAll();
@@ -63,7 +63,7 @@ void AddressBook::getAll()
     emit refreshFinished();
 }
 
-bool AddressBook::getRow(int index, std::function<void (Monero::AddressBookRow &)> callback) const
+bool AddressBook::getRow(int index, std::function<void (Coinevo::AddressBookRow &)> callback) const
 {
     QReadLocker locker(&m_lock);
 

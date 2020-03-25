@@ -1,4 +1,4 @@
-// Copyright (c) 2014-2018, The Monero Project
+// Copyright (c) 2014-2018, The Coinevo Project
 //
 // All rights reserved.
 //
@@ -33,7 +33,7 @@ import QtQuick.Layouts 1.1
 import QtQuick.Controls.Styles 1.4
 import QtQuick.Window 2.0
 
-import "../components" as MoneroComponents
+import "../components" as CoinevoComponents
 
 Item {
     id: root
@@ -79,33 +79,33 @@ Item {
                 Layout.fillWidth: true
 
                 font.pixelSize: 16
-                font.family: MoneroComponents.Style.fontLight.name
+                font.family: CoinevoComponents.Style.fontLight.name
 
-                color: MoneroComponents.Style.defaultFontColor
+                color: CoinevoComponents.Style.defaultFontColor
             }
 
-            MoneroComponents.Input {
+            CoinevoComponents.Input {
                 id : input
                 focus: true
                 Layout.topMargin: 6
                 Layout.fillWidth: true
                 horizontalAlignment: TextInput.AlignLeft
                 verticalAlignment: TextInput.AlignVCenter
-                font.family: MoneroComponents.Style.fontLight.name
+                font.family: CoinevoComponents.Style.fontLight.name
                 font.pixelSize: 24
                 KeyNavigation.tab: okButton
                 bottomPadding: 10
                 leftPadding: 10
                 topPadding: 10
-                color: MoneroComponents.Style.defaultFontColor
-                selectionColor: MoneroComponents.Style.textSelectionColor
-                selectedTextColor: MoneroComponents.Style.textSelectedColor
+                color: CoinevoComponents.Style.defaultFontColor
+                selectionColor: CoinevoComponents.Style.textSelectionColor
+                selectedTextColor: CoinevoComponents.Style.textSelectedColor
 
                 background: Rectangle {
                     radius: 2
-                    border.color: MoneroComponents.Style.inputBorderColorActive
+                    border.color: CoinevoComponents.Style.inputBorderColorActive
                     border.width: 1
-                    color: MoneroComponents.Style.blackTheme ? "black" : "#A9FFFFFF"
+                    color: CoinevoComponents.Style.blackTheme ? "black" : "#A9FFFFFF"
                 }
 
                 Keys.enabled: root.visible
@@ -127,7 +127,7 @@ Item {
                 Layout.topMargin: 16
                 Layout.alignment: Qt.AlignRight
 
-                MoneroComponents.StandardButton {
+                CoinevoComponents.StandardButton {
                     id: cancelButton
                     small: true
                     width: 120
@@ -139,7 +139,7 @@ Item {
                         root.rejected()
                     }
                 }
-                MoneroComponents.StandardButton {
+                CoinevoComponents.StandardButton {
                     id: okButton
                     small: true
                     width: 120

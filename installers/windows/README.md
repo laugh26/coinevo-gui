@@ -1,24 +1,24 @@
-# Monero GUI Wallet Windows Installer #
+# Coinevo GUI Wallet Windows Installer #
 
-Copyright (c) 2017-2019, The Monero Project
+Copyright (c) 2017-2019, The Coinevo Project
 
 ## Introduction ##
 
-This is a *Inno Setup* script `Monero.iss` plus some related files
+This is a *Inno Setup* script `Coinevo.iss` plus some related files
 that allows you to build a standalone Windows installer (.exe) for
-the GUI wallet that comes with the Carbon Chamaeleon release of Monero.
+the GUI wallet that comes with the Carbon Chamaeleon release of Coinevo.
 
 This turns the GUI wallet into a more or less standard Windows program,
 by default installed into a subdirectory of `C:\Program Files`, a
 program group with some icons in the *Start* menu, and automatic
 uninstall support. It helps lowering the "barrier to entry"
 somewhat, especially for less technically experienced users of
-Monero.
+Coinevo.
 
-As the setup script in file [Monero.iss](Monero.iss) has to list many
+As the setup script in file [Coinevo.iss](Coinevo.iss) has to list many
 files and directories of the GUI wallet package to install by name,
 this version of the script only works with exactly the GUI wallet
-for Monero release *Carbon Chamaeleon* that you find on
+for Coinevo release *Carbon Chamaeleon* that you find on
 [the official download page](https://coinevo.tech/downloads/).
 
 It should however be easy to modify the script for future
@@ -41,6 +41,6 @@ The build steps in detail:
 1. Install *Inno Setup*. You can get it from [here](http://www.jrsoftware.org/isdl.php)
 2. Get the Inno Setup script plus related files by cloning the whole [coinevo-gui GitHub repository](https://github.com/coinevo-project/coinevo-gui); you will only need the files in the installer directory `installers\windows` however. Depending on development state, additionally instead of simply using `master` you may have to checkout a specific branch, like `release-v0.15`.
 3. The setup script is written to take the GUI wallet files from a subdirectory named `bin`; so create `installers\windows\bin`, get the zip file of the GUI wallet from [here](https://coinevo.tech/downloads/), unpack it somewhere, and copy all the files and subdirectories in the single subdirectory there (currently named `coinevo-gui-0.15.0.0`) to this `bin` subdirectory
-4. Start Inno Setup, load `Monero.iss` and compile it
+4. Start Inno Setup, load `Coinevo.iss` and compile it
 5. The result i.e. the finished installer will be the file `mysetup.exe` in the `installers\windows\Output` subdirectory 
 

@@ -1,4 +1,4 @@
-// Copyright (c) 2014-2019, The Monero Project
+// Copyright (c) 2014-2019, The Coinevo Project
 //
 // All rights reserved.
 //
@@ -39,16 +39,16 @@ import coinevoComponents.NetworkType 1.0
 import coinevoComponents.Settings 1.0
 
 import "components"
-import "components" as MoneroComponents
-import "components/effects" as MoneroEffects
-import "pages/merchant" as MoneroMerchant
+import "components" as CoinevoComponents
+import "components/effects" as CoinevoEffects
+import "pages/merchant" as CoinevoMerchant
 import "wizard"
 import "js/Utils.js" as Utils
 import "js/Windows.js" as Windows
 
 ApplicationWindow {
     id: appWindow
-    title: "Monero" + (walletName ? " - " + walletName : "")
+    title: "Coinevo" + (walletName ? " - " + walletName : "")
     minimumWidth: 750
     minimumHeight: 450
 
@@ -961,7 +961,7 @@ ApplicationWindow {
                     txid_text += ", "
                 txid_text += txid[i]
             }
-            informationPopup.text  = (viewOnly)? qsTr("Transaction saved to file: %1").arg(path) : qsTr("Monero sent successfully: %1 transaction(s) ").arg(txid.length) + txid_text + translationManager.emptyString
+            informationPopup.text  = (viewOnly)? qsTr("Transaction saved to file: %1").arg(path) : qsTr("Coinevo sent successfully: %1 transaction(s) ").arg(txid.length) + txid_text + translationManager.emptyString
             informationPopup.icon  = StandardIcon.Information
             if (transactionDescription.length > 0) {
                 for (var i = 0; i < txid.length; ++i)
@@ -1104,7 +1104,7 @@ ApplicationWindow {
             wizard.wizardState = "wizardHome";
             rootItem.state = "wizard"
             // reset balance
-            clearMoneroCardLabelText();
+            clearCoinevoCardLabelText();
             middlePanel.addressBookView.clearFields();
             middlePanel.transferView.clearFields();
             middlePanel.receiveView.clearFields();
@@ -1119,7 +1119,7 @@ ApplicationWindow {
     visible: true
     width: screenWidth > 980 ? 980 : 800
     height: screenHeight > maxWindowHeight ? maxWindowHeight : 700
-    color: MoneroComponents.Style.appWindowBackgroundColor
+    color: CoinevoComponents.Style.appWindowBackgroundColor
     flags: persistentSettings.customDecorations ? Windows.flagsCustomDecorations : Windows.flags
     onWidthChanged: x -= 0
 
@@ -1325,11 +1325,11 @@ ApplicationWindow {
         }
     }
 
-    MoneroSettings {
+    CoinevoSettings {
         id: persistentSettings
         fileName: {
             if(isTails && tailsUsePersistence)
-                return homePath + "/Persistent/Monero/coinevo-core.conf";
+                return homePath + "/Persistent/Coinevo/coinevo-core.conf";
             return "";
         }
 
@@ -1374,7 +1374,7 @@ ApplicationWindow {
         property string fiatPriceCurrency: "evousd"
 
         Component.onCompleted: {
-            MoneroComponents.Style.blackTheme = persistentSettings.blackTheme
+            CoinevoComponents.Style.blackTheme = persistentSettings.blackTheme
         }
     }
 
@@ -1675,7 +1675,7 @@ ApplicationWindow {
             WizardController {
                 id: wizard
                 anchors.fill: parent
-                onUseMoneroClicked: {
+                onUseCoinevoClicked: {
                     rootItem.state = "normal";
                     appWindow.openWallet("wizard");
                 }
@@ -1709,11 +1709,11 @@ ApplicationWindow {
             height: 34
             width: 34
 
-            MoneroEffects.ImageMask {
+            CoinevoEffects.ImageMask {
                 anchors.centerIn: parent
                 visible: persistentSettings.customDecorations
                 image: "qrc:///images/resize.png"
-                color: MoneroComponents.Style.defaultFontColor
+                color: CoinevoComponents.Style.defaultFontColor
                 width: 12
                 height: 12
                 opacity: (parent.containsMouse || parent.pressed) ? 0.5 : 1.0
@@ -1756,7 +1756,7 @@ ApplicationWindow {
             onMinimizeClicked: appWindow.visibility = Window.Minimized
         }
 
-        MoneroMerchant.MerchantTitlebar {
+        CoinevoMerchant.MerchantTitlebar {
             id: titleBarOrange
             visible: persistentSettings.customDecorations && middlePanel.state === "Merchant"
             anchors.left: parent.left
@@ -1784,7 +1784,7 @@ ApplicationWindow {
                 source: "qrc:///images/tip.png"
             }
 
-            MoneroComponents.TextPlain {
+            CoinevoComponents.TextPlain {
                 id: content
                 anchors.horizontalCenter: parent.horizontalCenter
                 y: 6
@@ -1890,14 +1890,14 @@ ApplicationWindow {
         anchors.bottom: parent.bottom
         width: statusMessageText.contentWidth + 20
         anchors.horizontalCenter: parent.horizontalCenter
-        color: MoneroComponents.Style.blackTheme ? "black" : "white"
+        color: CoinevoComponents.Style.blackTheme ? "black" : "white"
         height: 40
-        MoneroComponents.TextPlain {
+        CoinevoComponents.TextPlain {
             id: statusMessageText
             anchors.fill: parent
             anchors.margins: 10
             font.pixelSize: 14
-            color: MoneroComponents.Style.defaultFontColor
+            color: CoinevoComponents.Style.defaultFontColor
             themeTransition: false
         }
     }
@@ -1980,7 +1980,7 @@ ApplicationWindow {
             var version = parts[0]
             var hash = parts[1]
             var user_url = parts[2]
-            var msg = qsTr("New version of Monero v%1 is available.").arg(version)
+            var msg = qsTr("New version of Coinevo v%1 is available.").arg(version)
             if (isMac || isWindows || isLinux) {
                 msg += "<br><br>%1:<br>%2<br><br>%3:<br>%4".arg(qsTr("Download")).arg(user_url).arg(qsTr("SHA256 Hash")).arg(hash) + translationManager.emptyString
             } else {
@@ -2012,14 +2012,14 @@ ApplicationWindow {
     }
 
     // reset label text. othewise potential privacy leak showing unlock time when switching wallets
-    function clearMoneroCardLabelText(){
+    function clearCoinevoCardLabelText(){
         leftPanel.balanceString = "?.??"
         leftPanel.balanceFiatString = "?.??"
     }
 
     // some fields need an extra nudge when changing languages
     function resetLanguageFields(){
-        clearMoneroCardLabelText()
+        clearCoinevoCardLabelText()
         if (currentWallet) {
             onWalletRefresh();
         }
@@ -2090,10 +2090,10 @@ ApplicationWindow {
         visible: blur.visible
         anchors.fill: parent
         anchors.topMargin: titleBar.height
-        color: MoneroComponents.Style.blackTheme ? "black" : "white"
+        color: CoinevoComponents.Style.blackTheme ? "black" : "white"
         opacity: isOpenGL ? 0.3 : inputDialog.visible || splash.visible ? 0.7 : 1.0
 
-        MoneroEffects.ColorTransition {
+        CoinevoEffects.ColorTransition {
             targetObj: parent
             blackColor: "black"
             whiteColor: "white"
@@ -2102,71 +2102,71 @@ ApplicationWindow {
 
     // borders on white theme + linux
     Rectangle {
-        visible: isLinux && !MoneroComponents.Style.blackTheme && middlePanel.state !== "Merchant"
+        visible: isLinux && !CoinevoComponents.Style.blackTheme && middlePanel.state !== "Merchant"
         z: parent.z + 1
         anchors.left: parent.left
         anchors.top: parent.top
         anchors.bottom: parent.bottom
         width: 1
-        color: MoneroComponents.Style.appWindowBorderColor
+        color: CoinevoComponents.Style.appWindowBorderColor
 
-        MoneroEffects.ColorTransition {
+        CoinevoEffects.ColorTransition {
             targetObj: parent
-            blackColor: MoneroComponents.Style._b_appWindowBorderColor
-            whiteColor: MoneroComponents.Style._w_appWindowBorderColor
+            blackColor: CoinevoComponents.Style._b_appWindowBorderColor
+            whiteColor: CoinevoComponents.Style._w_appWindowBorderColor
         }
     }
 
     Rectangle {
-        visible: isLinux && !MoneroComponents.Style.blackTheme && middlePanel.state !== "Merchant"
+        visible: isLinux && !CoinevoComponents.Style.blackTheme && middlePanel.state !== "Merchant"
         z: parent.z + 1
         anchors.right: parent.right
         anchors.top: parent.top
         anchors.bottom: parent.bottom
         width: 1
-        color: MoneroComponents.Style.appWindowBorderColor
+        color: CoinevoComponents.Style.appWindowBorderColor
 
-        MoneroEffects.ColorTransition {
+        CoinevoEffects.ColorTransition {
             targetObj: parent
-            blackColor: MoneroComponents.Style._b_appWindowBorderColor
-            whiteColor: MoneroComponents.Style._w_appWindowBorderColor
+            blackColor: CoinevoComponents.Style._b_appWindowBorderColor
+            whiteColor: CoinevoComponents.Style._w_appWindowBorderColor
         }
     }
 
     Rectangle {
-        visible: isLinux && !MoneroComponents.Style.blackTheme && middlePanel.state !== "Merchant"
+        visible: isLinux && !CoinevoComponents.Style.blackTheme && middlePanel.state !== "Merchant"
         z: parent.z + 1
         anchors.right: parent.right
         anchors.top: parent.top
         anchors.left: parent.left
         height: 1
-        color: MoneroComponents.Style.appWindowBorderColor
+        color: CoinevoComponents.Style.appWindowBorderColor
 
-        MoneroEffects.ColorTransition {
+        CoinevoEffects.ColorTransition {
             targetObj: parent
-            blackColor: MoneroComponents.Style._b_appWindowBorderColor
-            whiteColor: MoneroComponents.Style._w_appWindowBorderColor
+            blackColor: CoinevoComponents.Style._b_appWindowBorderColor
+            whiteColor: CoinevoComponents.Style._w_appWindowBorderColor
         }
     }
 
     Rectangle {
-        visible: isLinux && !MoneroComponents.Style.blackTheme && middlePanel.state !== "Merchant"
+        visible: isLinux && !CoinevoComponents.Style.blackTheme && middlePanel.state !== "Merchant"
         z: parent.z + 1
         anchors.right: parent.right
         anchors.bottom: parent.bottom
         anchors.left: parent.left
         height: 1
-        color: MoneroComponents.Style.appWindowBorderColor
+        color: CoinevoComponents.Style.appWindowBorderColor
 
-        MoneroEffects.ColorTransition {
+        CoinevoEffects.ColorTransition {
             targetObj: parent
-            blackColor: MoneroComponents.Style._b_appWindowBorderColor
-            whiteColor: MoneroComponents.Style._w_appWindowBorderColor
+            blackColor: CoinevoComponents.Style._b_appWindowBorderColor
+            whiteColor: CoinevoComponents.Style._w_appWindowBorderColor
         }
     }
 
 // @TODO: QML type 'Drawer' has issues with buildbot; debug after Qt 5.9 migration
-//    MoneroComponents.LanguageSidebar {
+//    CoinevoComponents.LanguageSidebar {
 //        id: languageSidebar
 //    }
 }

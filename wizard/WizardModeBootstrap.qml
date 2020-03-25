@@ -1,4 +1,4 @@
-// Copyright (c) 2014-2019, The Monero Project
+// Copyright (c) 2014-2019, The Coinevo Project
 // 
 // All rights reserved.
 // 
@@ -31,7 +31,7 @@ import QtQuick.Layouts 1.2
 import QtQuick.Controls 2.0
 
 import "../js/Wizard.js" as Wizard
-import "../components" as MoneroComponents
+import "../components" as CoinevoComponents
 
 Rectangle {
     id: wizardModeBootstrapWarning
@@ -68,36 +68,36 @@ Rectangle {
                 Layout.topMargin: 10
                 Layout.fillWidth: true
 
-                MoneroComponents.TextPlain {
+                CoinevoComponents.TextPlain {
                     text: qsTr("This mode will use a remote node whilst also syncing the blockchain. This is different from the first menu option (Simple mode), since it will only use the remote node until the blockchain is fully synced locally. It is a reasonable tradeoff for most people who care about privacy but also want the convenience of an automatic fallback option.") + translationManager.emptyString
                     wrapMode: Text.Wrap
                     Layout.topMargin: 14
                     Layout.fillWidth: true
                     textFormat: Text.RichText
 
-                    font.family: MoneroComponents.Style.fontRegular.name
+                    font.family: CoinevoComponents.Style.fontRegular.name
                     font.pixelSize: 16
-                    color: MoneroComponents.Style.lightGreyFontColor
+                    color: CoinevoComponents.Style.lightGreyFontColor
                 }
 
-                MoneroComponents.TextPlain {
-                    text: qsTr("Temporary use of remote nodes is useful in order to use Monero immediately (hence the name bootstrap), however be aware that when using remote nodes (including with the bootstrap setting), nodes could track your IP address, track your \"restore height\" and associated block request data, and send you inaccurate information to learn more about transactions you make.") + translationManager.emptyString
+                CoinevoComponents.TextPlain {
+                    text: qsTr("Temporary use of remote nodes is useful in order to use Coinevo immediately (hence the name bootstrap), however be aware that when using remote nodes (including with the bootstrap setting), nodes could track your IP address, track your \"restore height\" and associated block request data, and send you inaccurate information to learn more about transactions you make.") + translationManager.emptyString
                     wrapMode: Text.Wrap
                     Layout.topMargin: 8
                     Layout.fillWidth: true
 
-                    font.family: MoneroComponents.Style.fontRegular.name
+                    font.family: CoinevoComponents.Style.fontRegular.name
                     font.pixelSize: 16
-                    color: MoneroComponents.Style.lightGreyFontColor
+                    color: CoinevoComponents.Style.lightGreyFontColor
                 }
 
-                MoneroComponents.WarningBox{
+                CoinevoComponents.WarningBox{
                     Layout.topMargin: 14
                     Layout.bottomMargin: 6
                     text: qsTr("Remain aware of these limitations. <b>Users who prioritize privacy and decentralization must use a full node instead</b>.") + translationManager.emptyString
                 }
 
-                MoneroComponents.CheckBox {
+                CoinevoComponents.CheckBox {
                     id: understoodCheckbox
                     Layout.topMargin: 20
                     fontSize: 16

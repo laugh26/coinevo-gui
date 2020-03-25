@@ -1,4 +1,4 @@
-// Copyright (c) 2014-2018, The Monero Project
+// Copyright (c) 2014-2018, The Coinevo Project
 // 
 // All rights reserved.
 // 
@@ -38,8 +38,8 @@ import coinevoComponents.Wallet 1.0
 import "./pages"
 import "./pages/settings"
 import "./pages/merchant"
-import "./components" as MoneroComponents
-import "./components/effects/" as MoneroEffects
+import "./components" as CoinevoComponents
+import "./components/effects/" as CoinevoEffects
 
 Rectangle {
     id: root
@@ -72,20 +72,20 @@ Rectangle {
     Rectangle {
         // grey background on merchantView
         visible: currentView === merchantView
-        color: MoneroComponents.Style.coinevoGrey
+        color: CoinevoComponents.Style.coinevoGrey
         anchors.fill: parent
     }
 
-    MoneroEffects.GradientBackground {
+    CoinevoEffects.GradientBackground {
         visible: currentView !== merchantView
         anchors.fill: parent
-        fallBackColor: MoneroComponents.Style.middlePanelBackgroundColor
-        initialStartColor: MoneroComponents.Style.middlePanelBackgroundGradientStart
-        initialStopColor: MoneroComponents.Style.middlePanelBackgroundGradientStop
-        blackColorStart: MoneroComponents.Style._b_middlePanelBackgroundGradientStart
-        blackColorStop: MoneroComponents.Style._b_middlePanelBackgroundGradientStop
-        whiteColorStart: MoneroComponents.Style._w_middlePanelBackgroundGradientStart
-        whiteColorStop: MoneroComponents.Style._w_middlePanelBackgroundGradientStop
+        fallBackColor: CoinevoComponents.Style.middlePanelBackgroundColor
+        initialStartColor: CoinevoComponents.Style.middlePanelBackgroundGradientStart
+        initialStopColor: CoinevoComponents.Style.middlePanelBackgroundGradientStop
+        blackColorStart: CoinevoComponents.Style._b_middlePanelBackgroundGradientStart
+        blackColorStop: CoinevoComponents.Style._b_middlePanelBackgroundGradientStop
+        whiteColorStart: CoinevoComponents.Style._w_middlePanelBackgroundGradientStart
+        whiteColorStop: CoinevoComponents.Style._w_middlePanelBackgroundGradientStop
         start: Qt.point(0, 0)
         end: Qt.point(height, width)
     }
@@ -243,12 +243,12 @@ Rectangle {
         anchors.bottom: parent.bottom
         anchors.left: parent.left
         width: 1
-        color: MoneroComponents.Style.appWindowBorderColor
+        color: CoinevoComponents.Style.appWindowBorderColor
 
-        MoneroEffects.ColorTransition {
+        CoinevoEffects.ColorTransition {
             targetObj: parent
-            blackColor: MoneroComponents.Style._b_appWindowBorderColor
-            whiteColor: MoneroComponents.Style._w_appWindowBorderColor
+            blackColor: CoinevoComponents.Style._b_appWindowBorderColor
+            whiteColor: CoinevoComponents.Style._w_appWindowBorderColor
         }
     }
 

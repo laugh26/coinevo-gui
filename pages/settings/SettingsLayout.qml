@@ -1,4 +1,4 @@
-// Copyright (c) 2014-2018, The Monero Project
+// Copyright (c) 2014-2018, The Coinevo Project
 // 
 // All rights reserved.
 // 
@@ -33,7 +33,7 @@ import QtQuick.Dialogs 1.2
 
 import "../../js/Utils.js" as Utils
 import "../../js/Windows.js" as Windows
-import "../../components" as MoneroComponents
+import "../../components" as CoinevoComponents
 
 Rectangle {
     color: "transparent"
@@ -51,14 +51,14 @@ Rectangle {
         anchors.topMargin: 0
         spacing: 6
 
-        MoneroComponents.CheckBox {
+        CoinevoComponents.CheckBox {
             id: customDecorationsCheckBox
             checked: persistentSettings.customDecorations
             onClicked: Windows.setCustomWindowDecorations(checked)
             text: qsTr("Custom decorations") + translationManager.emptyString
         }
 
-        MoneroComponents.CheckBox {
+        CoinevoComponents.CheckBox {
             id: hideBalanceCheckBox
             checked: persistentSettings.hideBalance
             onClicked: {
@@ -68,18 +68,18 @@ Rectangle {
             text: qsTr("Hide balance") + translationManager.emptyString
         }
 
-        MoneroComponents.CheckBox {
+        CoinevoComponents.CheckBox {
             id: themeCheckbox
-            checked: !MoneroComponents.Style.blackTheme
+            checked: !CoinevoComponents.Style.blackTheme
             text: qsTr("Light theme") + translationManager.emptyString
             toggleOnClick: false
             onClicked: {
-                MoneroComponents.Style.blackTheme = !MoneroComponents.Style.blackTheme;
-                persistentSettings.blackTheme = MoneroComponents.Style.blackTheme;
+                CoinevoComponents.Style.blackTheme = !CoinevoComponents.Style.blackTheme;
+                persistentSettings.blackTheme = CoinevoComponents.Style.blackTheme;
             }
         }
 
-        MoneroComponents.CheckBox {
+        CoinevoComponents.CheckBox {
             id: userInActivityCheckbox
             checked: persistentSettings.lockOnUserInActivity
             onClicked: persistentSettings.lockOnUserInActivity = !persistentSettings.lockOnUserInActivity
@@ -94,7 +94,7 @@ Rectangle {
             spacing: 0
 
             Text {
-                color: MoneroComponents.Style.defaultFontColor
+                color: CoinevoComponents.Style.defaultFontColor
                 font.pixelSize: 14
                 Layout.fillWidth: true
                 text: {
@@ -122,12 +122,12 @@ Rectangle {
                     width: parent.availableWidth
                     height: implicitHeight
                     radius: 2
-                    color: MoneroComponents.Style.progressBarBackgroundColor
+                    color: CoinevoComponents.Style.progressBarBackgroundColor
 
                     Rectangle {
                         width: parent.visualPosition * parent.width
                         height: parent.height
-                        color: MoneroComponents.Style.green
+                        color: CoinevoComponents.Style.green
                         radius: 2
                     }
                 }
@@ -139,7 +139,7 @@ Rectangle {
                     implicitHeight: 18
                     radius: 8
                     color: parent.pressed ? "#f0f0f0" : "#f6f6f6"
-                    border.color: MoneroComponents.Style.grey
+                    border.color: CoinevoComponents.Style.grey
                 }
 
                 onMoved: persistentSettings.lockOnUserInActivityInterval = userInactivitySlider.value;
@@ -154,7 +154,7 @@ Rectangle {
 
         //! Manage pricing
         RowLayout {
-            MoneroComponents.CheckBox {
+            CoinevoComponents.CheckBox {
                 id: enableConvertCurrency
                 text: qsTr("Enable displaying balance in other currencies") + translationManager.emptyString
                 checked: persistentSettings.fiatPriceEnabled
@@ -179,13 +179,13 @@ Rectangle {
                 spacing: 10
                 Layout.fillWidth: true
 
-                MoneroComponents.Label {
+                CoinevoComponents.Label {
                     Layout.fillWidth: true
                     fontSize: 14
                     text: qsTr("Price source") + translationManager.emptyString
                 }
 
-                MoneroComponents.StandardDropdown {
+                CoinevoComponents.StandardDropdown {
                     id: fiatPriceProviderDropDown
                     Layout.fillWidth: true
                     dataModel: fiatPriceProvidersModel
@@ -203,13 +203,13 @@ Rectangle {
                 spacing: 10
                 Layout.fillWidth: true
 
-                MoneroComponents.Label {
+                CoinevoComponents.Label {
                     Layout.fillWidth: true
                     fontSize: 14
                     text: qsTr("Currency") + translationManager.emptyString
                 }
 
-                MoneroComponents.StandardDropdown {
+                CoinevoComponents.StandardDropdown {
                     id: fiatPriceCurrencyDropdown
                     Layout.fillWidth: true
                     dataModel: fiatPriceCurrencyModel
@@ -233,11 +233,11 @@ Rectangle {
             Layout.topMargin: 5
             Layout.leftMargin: 36
 
-            MoneroComponents.WarningBox {
+            CoinevoComponents.WarningBox {
                 text: qsTr("Enabling price conversion exposes your IP address to the selected price source.") + translationManager.emptyString;
             }
 
-            MoneroComponents.StandardButton {
+            CoinevoComponents.StandardButton {
                 Layout.topMargin: 10
                 Layout.bottomMargin: 10
                 small: true
@@ -252,7 +252,7 @@ Rectangle {
             }
         }
 
-        MoneroComponents.StandardButton {
+        CoinevoComponents.StandardButton {
             visible: !persistentSettings.customDecorations
             Layout.topMargin: 10
             small: true

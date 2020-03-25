@@ -1,4 +1,4 @@
-// Copyright (c) 2014-2019, The Monero Project
+// Copyright (c) 2014-2019, The Coinevo Project
 // 
 // All rights reserved.
 // 
@@ -29,7 +29,7 @@
 import QtQuick 2.9
 import QtQuick.Layouts 1.1
 import QtQuick.Dialogs 1.2
-import "../components" as MoneroComponents
+import "../components" as CoinevoComponents
 import coinevoComponents.Wallet 1.0
 
 Rectangle {
@@ -48,35 +48,35 @@ Rectangle {
         anchors.right: parent.right
         spacing: 20
 
-        MoneroComponents.Label {
+        CoinevoComponents.Label {
             id: soloTitleLabel
             fontSize: 24
             text: qsTr("Solo mining") + translationManager.emptyString
         }
 
-        MoneroComponents.WarningBox {
+        CoinevoComponents.WarningBox {
             Layout.bottomMargin: 8
             text: qsTr("Mining is only available on local daemons.") + translationManager.emptyString
             visible: persistentSettings.useRemoteNode
         }
 
-        MoneroComponents.WarningBox {
+        CoinevoComponents.WarningBox {
             Layout.bottomMargin: 8
             text: qsTr("Your daemon must be synchronized before you can start mining") + translationManager.emptyString
             visible: !persistentSettings.useRemoteNode && !appWindow.daemonSynced
         }
 
-        MoneroComponents.TextPlain {
+        CoinevoComponents.TextPlain {
             id: soloMainLabel
-            text: qsTr("Mining with your computer helps strengthen the Monero network. The more that people mine, the harder it is for the network to be attacked, and every little bit helps.\n\nMining also gives you a small chance to earn some Monero. Your computer will create hashes looking for block solutions. If you find a block, you will get the associated reward. Good luck!") + translationManager.emptyString
+            text: qsTr("Mining with your computer helps strengthen the Coinevo network. The more that people mine, the harder it is for the network to be attacked, and every little bit helps.\n\nMining also gives you a small chance to earn some Coinevo. Your computer will create hashes looking for block solutions. If you find a block, you will get the associated reward. Good luck!") + translationManager.emptyString
             wrapMode: Text.Wrap
             Layout.fillWidth: true
-            font.family: MoneroComponents.Style.fontRegular.name
+            font.family: CoinevoComponents.Style.fontRegular.name
             font.pixelSize: 14
-            color: MoneroComponents.Style.defaultFontColor
+            color: CoinevoComponents.Style.defaultFontColor
         }
 
-        MoneroComponents.WarningBox {
+        CoinevoComponents.WarningBox {
             id: warningLabel
             Layout.topMargin: 8
             Layout.bottomMargin: 8
@@ -93,9 +93,9 @@ Rectangle {
                 Layout.fillWidth: true
                 Layout.alignment : Qt.AlignTop | Qt.AlignLeft
 
-                MoneroComponents.Label {
+                CoinevoComponents.Label {
                     id: soloMinerThreadsLabel
-                    color: MoneroComponents.Style.defaultFontColor
+                    color: CoinevoComponents.Style.defaultFontColor
                     text: qsTr("CPU threads") + translationManager.emptyString
                     fontSize: 16
                     wrapMode: Text.WordWrap
@@ -106,24 +106,24 @@ Rectangle {
                 Layout.fillWidth: true
                 spacing: 16
 
-                MoneroComponents.LineEdit {
+                CoinevoComponents.LineEdit {
                     id: soloMinerThreadsLine
                     Layout.minimumWidth: 200
                     text: "1"
                     validator: IntValidator { bottom: 1; top: idealThreadCount }
                 }
 
-                MoneroComponents.TextPlain {
+                CoinevoComponents.TextPlain {
                     id: numAvailableThreadsText
                     text: qsTr("Max # of CPU threads available for mining: ") + idealThreadCount + translationManager.emptyString
                     wrapMode: Text.WordWrap
-                    font.family: MoneroComponents.Style.fontRegular.name
+                    font.family: CoinevoComponents.Style.fontRegular.name
                     font.pixelSize: 14
-                    color: MoneroComponents.Style.defaultFontColor
+                    color: CoinevoComponents.Style.defaultFontColor
                 }
 
                 RowLayout {
-                    MoneroComponents.StandardButton {
+                    CoinevoComponents.StandardButton {
                         id: autoRecommendedThreadsButton
                         small: true
                         text: qsTr("Use recommended # of threads") + translationManager.emptyString
@@ -134,7 +134,7 @@ Rectangle {
                         }
                     }
 
-                    MoneroComponents.StandardButton {
+                    CoinevoComponents.StandardButton {
                         id: autoSetMaxThreadsButton
                         small: true
                         text: qsTr("Use all threads") + translationManager.emptyString
@@ -147,7 +147,7 @@ Rectangle {
                 }
 
                 RowLayout {
-                    MoneroComponents.CheckBox {
+                    CoinevoComponents.CheckBox {
                         id: backgroundMining
                         enabled: startSoloMinerButton.enabled
                         checked: persistentSettings.allow_background_mining
@@ -159,7 +159,7 @@ Rectangle {
                 RowLayout {
                     // Disable this option until stable
                     visible: false
-                    MoneroComponents.CheckBox {
+                    CoinevoComponents.CheckBox {
                         id: ignoreBattery
                         enabled: startSoloMinerButton.enabled
                         checked: !persistentSettings.miningIgnoreBattery
@@ -172,9 +172,9 @@ Rectangle {
             ColumnLayout {
                 Layout.alignment : Qt.AlignTop | Qt.AlignLeft
 
-                MoneroComponents.Label {
+                CoinevoComponents.Label {
                     id: manageSoloMinerLabel
-                    color: MoneroComponents.Style.defaultFontColor
+                    color: CoinevoComponents.Style.defaultFontColor
                     text: qsTr("Manage miner") + translationManager.emptyString
                     fontSize: 16
                     wrapMode: Text.Wrap
@@ -187,7 +187,7 @@ Rectangle {
                 spacing: 16
 
                 RowLayout {
-                    MoneroComponents.StandardButton {
+                    CoinevoComponents.StandardButton {
                         visible: true
                         id: startSoloMinerButton
                         small: true
@@ -207,7 +207,7 @@ Rectangle {
                         }
                     }
 
-                    MoneroComponents.StandardButton {
+                    CoinevoComponents.StandardButton {
                         visible: true
                         id: stopSoloMinerButton
                         small: true
@@ -224,9 +224,9 @@ Rectangle {
                 Layout.fillWidth: true
                 Layout.alignment : Qt.AlignTop | Qt.AlignLeft
 
-                MoneroComponents.Label {
+                CoinevoComponents.Label {
                     id: statusLabel
-                    color: MoneroComponents.Style.defaultFontColor
+                    color: CoinevoComponents.Style.defaultFontColor
                     text: qsTr("Status") + translationManager.emptyString
                     fontSize: 16
                 }
@@ -236,7 +236,7 @@ Rectangle {
                 Layout.fillWidth: true
                 spacing: 16
 
-                MoneroComponents.LineEditMulti {
+                CoinevoComponents.LineEditMulti {
                     id: statusText
                     Layout.minimumWidth: 300
                     text: qsTr("Not mining") + translationManager.emptyString
@@ -270,7 +270,7 @@ Rectangle {
         walletManager.miningStatusAsync();
     }
 
-    MoneroComponents.StandardDialog {
+    CoinevoComponents.StandardDialog {
         id: errorPopup
         cancelVisible: false
     }

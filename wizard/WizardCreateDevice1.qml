@@ -1,4 +1,4 @@
-// Copyright (c) 2014-2019, The Monero Project
+// Copyright (c) 2014-2019, The Coinevo Project
 // 
 // All rights reserved.
 // 
@@ -35,7 +35,7 @@ import coinevoComponents.Wallet 1.0
 import "../js/Wizard.js" as Wizard
 import "../js/Utils.js" as Utils
 import "../components"
-import "../components" as MoneroComponents
+import "../components" as CoinevoComponents
 
 Rectangle {
     id: wizardCreateDevice1
@@ -88,7 +88,7 @@ Rectangle {
                 Layout.topMargin: 10
                 Layout.fillWidth: true
 
-                MoneroComponents.RadioButton {
+                CoinevoComponents.RadioButton {
                     id: newDeviceWallet
                     text: qsTr("Create a new wallet from device.") + translationManager.emptyString
                     fontSize: 16
@@ -100,7 +100,7 @@ Rectangle {
                     }
                 }
 
-                MoneroComponents.RadioButton {
+                CoinevoComponents.RadioButton {
                     id: restoreDeviceWallet
                     Layout.topMargin: 10
                     text: qsTr("Restore a wallet from device. Use this if you used your hardware wallet before.") + translationManager.emptyString
@@ -118,7 +118,7 @@ Rectangle {
                 Layout.fillWidth: true
                 spacing: 20
 
-                MoneroComponents.LineEdit {
+                CoinevoComponents.LineEdit {
                     id: restoreHeight
                     visible: !newDeviceWallet.checked
                     Layout.fillWidth: true
@@ -132,7 +132,7 @@ Rectangle {
                     text: "0"
                 }
 
-                MoneroComponents.StandardDropdown {
+                CoinevoComponents.StandardDropdown {
                     id: deviceNameDropdown
                     dataModel: deviceNameModel
                     Layout.fillWidth: true
@@ -146,7 +146,7 @@ Rectangle {
                     text: qsTr("Advanced options") + translationManager.emptyString
                 }
 
-                MoneroComponents.LineEdit {
+                CoinevoComponents.LineEdit {
                     id: lookahead
                     Layout.fillWidth: true
                     visible: showAdvancedCheckbox.checked
@@ -163,8 +163,8 @@ Rectangle {
                 text: qsTr("Error writing wallet from hardware device. Check application logs.") + translationManager.emptyString;
                 visible: errorMsg.text !== ""
                 Layout.fillWidth: true
-                font.family: MoneroComponents.Style.fontRegular.name
-                color: MoneroComponents.Style.errorColor
+                font.family: CoinevoComponents.Style.fontRegular.name
+                color: CoinevoComponents.Style.errorColor
                 font.pixelSize: 16
 
                 wrapMode: Text.WordWrap

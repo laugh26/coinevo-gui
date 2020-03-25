@@ -1,4 +1,4 @@
-// Copyright (c) 2014-2019, The Monero Project
+// Copyright (c) 2014-2019, The Coinevo Project
 // 
 // All rights reserved.
 // 
@@ -32,7 +32,7 @@ import QtQuick.Controls 2.0
 
 import "../js/Wizard.js" as Wizard
 import "../js/Utils.js" as Utils
-import "../components" as MoneroComponents
+import "../components" as CoinevoComponents
 
 Rectangle {
     id: wizardRestoreWallet1
@@ -118,7 +118,7 @@ Rectangle {
                 spacing: 30
                 Layout.fillWidth: true
 
-                MoneroComponents.RadioButton {
+                CoinevoComponents.RadioButton {
                     id: seedRadioButton
                     text: qsTr("Restore from seed") + translationManager.emptyString
                     fontSize: 16
@@ -131,7 +131,7 @@ Rectangle {
                     }
                 }
 
-                MoneroComponents.RadioButton {
+                CoinevoComponents.RadioButton {
                     id: keysRadioButton
                     text: qsTr("Restore from keys") + translationManager.emptyString
                     fontSize: 16
@@ -144,7 +144,7 @@ Rectangle {
                     }
                 }
 
-                MoneroComponents.RadioButton {
+                CoinevoComponents.RadioButton {
                     id: qrRadioButton
                     text: qsTr("Restore from QR Code") + translationManager.emptyString
                     fontSize: 16
@@ -177,49 +177,49 @@ Rectangle {
                     border.width: 1
                     border.color: {
                         if(seedInput.text !== "" && seedInput.error){
-                            return MoneroComponents.Style.inputBorderColorInvalid;
+                            return CoinevoComponents.Style.inputBorderColorInvalid;
                         } else if(seedInput.activeFocus){
-                            return MoneroComponents.Style.inputBorderColorActive;
+                            return CoinevoComponents.Style.inputBorderColorActive;
                         } else {
-                            return MoneroComponents.Style.inputBorderColorInActive;
+                            return CoinevoComponents.Style.inputBorderColorInActive;
                         }
                     }
 
-                    MoneroComponents.InputMulti {
+                    CoinevoComponents.InputMulti {
                         id: seedInput
                         property bool error: false
                         width: parent.width
                         height: 100
 
-                        color: MoneroComponents.Style.defaultFontColor
+                        color: CoinevoComponents.Style.defaultFontColor
                         textMargin: 2
                         text: ""
 
-                        font.family: MoneroComponents.Style.fontRegular.name
+                        font.family: CoinevoComponents.Style.fontRegular.name
                         font.pixelSize: 16
-                        selectionColor: MoneroComponents.Style.textSelectionColor
-                        selectedTextColor: MoneroComponents.Style.textSelectedColor
+                        selectionColor: CoinevoComponents.Style.textSelectionColor
+                        selectedTextColor: CoinevoComponents.Style.textSelectedColor
                         wrapMode: TextInput.Wrap
 
                         selectByMouse: true
 
-                        MoneroComponents.TextPlain {
+                        CoinevoComponents.TextPlain {
                             id: memoTextPlaceholder
                             opacity: 0.35
                             anchors.fill:parent
                             font.pixelSize: 16
                             anchors.margins: 8
                             anchors.leftMargin: 10
-                            font.family: MoneroComponents.Style.fontRegular.name
+                            font.family: CoinevoComponents.Style.fontRegular.name
                             text: qsTr("Enter your 25 (or 24) word mnemonic seed") + translationManager.emptyString
-                            color: MoneroComponents.Style.defaultFontColor
+                            color: CoinevoComponents.Style.defaultFontColor
                             visible: !seedInput.text
                         }
                     }
                 }
             }
 
-            MoneroComponents.LineEdit {
+            CoinevoComponents.LineEdit {
                 id: addressLine
                 visible: wizardController.walletRestoreMode === 'keys'
                 Layout.fillWidth: true
@@ -231,7 +231,7 @@ Rectangle {
                 }
             }
 
-            MoneroComponents.LineEdit {
+            CoinevoComponents.LineEdit {
                 id: viewKeyLine
                 visible: wizardController.walletRestoreMode === 'keys'
                 Layout.fillWidth: true
@@ -243,7 +243,7 @@ Rectangle {
                 }
             }
 
-            MoneroComponents.LineEdit {
+            CoinevoComponents.LineEdit {
                 id: spendKeyLine
                 visible: wizardController.walletRestoreMode === 'keys'
                 Layout.fillWidth: true
@@ -256,7 +256,7 @@ Rectangle {
             }
 
             GridLayout{
-                MoneroComponents.LineEdit {
+                CoinevoComponents.LineEdit {
                     id: restoreHeight
                     Layout.fillWidth: true
                     labelText: qsTr("Wallet creation date as `YYYY-MM-DD` or restore height") + translationManager.emptyString

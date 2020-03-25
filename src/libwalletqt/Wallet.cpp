@@ -1,4 +1,4 @@
-// Copyright (c) 2014-2019, The Monero Project
+// Copyright (c) 2014-2019, The Coinevo Project
 //
 // All rights reserved.
 //
@@ -59,7 +59,7 @@ namespace {
     static constexpr char ATTRIBUTE_SUBADDRESS_ACCOUNT[] ="gui.subaddress_account";
 }
 
-class WalletListenerImpl : public  Monero::WalletListener
+class WalletListenerImpl : public  Coinevo::WalletListener
 {
 public:
     WalletListenerImpl(Wallet * w)
@@ -282,12 +282,12 @@ void Wallet::initAsync(const QString &daemonAddress, bool trustedDaemon, quint64
 
 bool Wallet::isHwBacked() const
 {
-    return m_walletImpl->getDeviceType() != Monero::Wallet::Device_Software;
+    return m_walletImpl->getDeviceType() != Coinevo::Wallet::Device_Software;
 }
 
 bool Wallet::isLedger() const
 {
-    return m_walletImpl->getDeviceType() == Monero::Wallet::Device_Ledger;
+    return m_walletImpl->getDeviceType() == Coinevo::Wallet::Device_Ledger;
 }
 
 //! create a view only wallet
@@ -511,9 +511,9 @@ PendingTransaction *Wallet::createTransaction(const QString &dst_addr, const QSt
                                               PendingTransaction::Priority priority)
 {
     std::set<uint32_t> subaddr_indices;
-    Monero::PendingTransaction * ptImpl = m_walletImpl->createTransaction(
+    Coinevo::PendingTransaction * ptImpl = m_walletImpl->createTransaction(
                 dst_addr.toStdString(), payment_id.toStdString(), amount, mixin_count,
-                static_cast<Monero::PendingTransaction::Priority>(priority), currentSubaddressAccount(), subaddr_indices);
+                static_cast<Coinevo::PendingTransaction::Priority>(priority), currentSubaddressAccount(), subaddr_indices);
     PendingTransaction * result = new PendingTransaction(ptImpl,0);
     return result;
 }
@@ -532,9 +532,9 @@ PendingTransaction *Wallet::createTransactionAll(const QString &dst_addr, const 
                                                  quint32 mixin_count, PendingTransaction::Priority priority)
 {
     std::set<uint32_t> subaddr_indices;
-    Monero::PendingTransaction * ptImpl = m_walletImpl->createTransaction(
-                dst_addr.toStdString(), payment_id.toStdString(), Monero::optional<uint64_t>(), mixin_count,
-                static_cast<Monero::PendingTransaction::Priority>(priority), currentSubaddressAccount(), subaddr_indices);
+    Coinevo::PendingTransaction * ptImpl = m_walletImpl->createTransaction(
+                dst_addr.toStdString(), payment_id.toStdString(), Coinevo::optional<uint64_t>(), mixin_count,
+                static_cast<Coinevo::PendingTransaction::Priority>(priority), currentSubaddressAccount(), subaddr_indices);
     PendingTransaction * result = new PendingTransaction(ptImpl, this);
     return result;
 }
@@ -551,7 +551,7 @@ void Wallet::createTransactionAllAsync(const QString &dst_addr, const QString &p
 
 PendingTransaction *Wallet::createSweepUnmixableTransaction()
 {
-    Monero::PendingTransaction * ptImpl = m_walletImpl->createSweepUnmixableTransaction();
+    Coinevo::PendingTransaction * ptImpl = m_walletImpl->createSweepUnmixableTransaction();
     PendingTransaction * result = new PendingTransaction(ptImpl, this);
     return result;
 }
@@ -567,7 +567,7 @@ void Wallet::createSweepUnmixableTransactionAsync()
 UnsignedTransaction * Wallet::loadTxFile(const QString &fileName)
 {
     qDebug() << "Trying to sign " << fileName;
-    Monero::UnsignedTransaction * ptImpl = m_walletImpl->loadUnsignedTx(fileName.toStdString());
+    Coinevo::UnsignedTransaction * ptImpl = m_walletImpl->loadUnsignedTx(fileName.toStdString());
     UnsignedTransaction * result = new UnsignedTransaction(ptImpl, m_walletImpl, this);
     return result;
 }
@@ -665,7 +665,7 @@ SubaddressAccountModel *Wallet::subaddressAccountModel() const
 
 QString Wallet::generatePaymentId() const
 {
-    return QString::fromStdString(Monero::Wallet::genPaymentId());
+    return QString::fromStdString(Coinevo::Wallet::genPaymentId());
 }
 
 QString Wallet::integratedAddress(const QString &paymentId) const
@@ -999,7 +999,7 @@ void Wallet::keyReuseMitigation2(bool mitigation)
     m_walletImpl->keyReuseMitigation2(mitigation);
 }
 
-Wallet::Wallet(Monero::Wallet *w, QObject *parent)
+Wallet::Wallet(Coinevo::Wallet *w, QObject *parent)
     : QObject(parent)
     , m_walletImpl(w)
     , m_history(nullptr)
@@ -1054,7 +1054,7 @@ Wallet::~Wallet()
     m_subaddress = NULL;
     delete m_subaddressAccount;
     m_subaddressAccount = NULL;
-    //Monero::WalletManagerFactory::getWalletManager()->closeWallet(m_walletImpl);
+    //Coinevo::WalletManagerFactory::getWalletManager()->closeWallet(m_walletImpl);
     if(status() == Status_Critical)
         qDebug("Not storing wallet cache");
     else if( m_walletImpl->store(""))

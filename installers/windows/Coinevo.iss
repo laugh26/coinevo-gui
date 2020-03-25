@@ -1,5 +1,5 @@
 ; Coinevo SUSIC-X2 GUI Wallet Installer for Windows
-; Copyright (c) 2017-2019, The Monero Project
+; Copyright (c) 2017-2019, The Coinevo Project
 ; See LICENSE
 #define GuiVersion GetFileVersion("bin\coinevo-wallet-gui.exe")
 

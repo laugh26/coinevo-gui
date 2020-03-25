@@ -1,4 +1,4 @@
-// Copyright (c) 2014-2019, The Monero Project
+// Copyright (c) 2014-2019, The Coinevo Project
 //
 // All rights reserved.
 //
@@ -38,8 +38,8 @@ import coinevoComponents.TransactionHistoryModel 1.0
 import coinevoComponents.Clipboard 1.0
 import FontAwesome 1.0
 
-import "../components/effects/" as MoneroEffects
-import "../components" as MoneroComponents
+import "../components/effects/" as CoinevoEffects
+import "../components" as CoinevoComponents
 import "../js/Utils.js" as Utils
 import "../js/TxUtils.js" as TxUtils
 
@@ -84,7 +84,7 @@ Rectangle {
             Layout.rightMargin: sideMargin
             Layout.bottomMargin: 10
 
-            MoneroComponents.Label {
+            CoinevoComponents.Label {
                 fontSize: 24
                 text: qsTr("Transactions") + translationManager.emptyString
             }
@@ -102,12 +102,12 @@ Rectangle {
                 Layout.preferredHeight: 15
                 spacing: 8
 
-                MoneroComponents.TextPlain {
+                CoinevoComponents.TextPlain {
                     Layout.alignment: Qt.AlignVCenter
-                    font.family: MoneroComponents.Style.fontRegular.name
+                    font.family: CoinevoComponents.Style.fontRegular.name
                     font.pixelSize: 15
                     text: qsTr("Sort & filter") + translationManager.emptyString
-                    color: MoneroComponents.Style.defaultFontColor
+                    color: CoinevoComponents.Style.defaultFontColor
 
                     MouseArea {
                         anchors.fill: parent
@@ -119,7 +119,7 @@ Rectangle {
                     }
                 }
 
-                MoneroEffects.ImageMask {
+                CoinevoEffects.ImageMask {
                     id: sortCollapsedIcon
                     Layout.alignment: Qt.AlignVCenter
                     height: 8
@@ -128,7 +128,7 @@ Rectangle {
                     fontAwesomeFallbackIcon: FontAwesome.arrowDown
                     fontAwesomeFallbackSize: 14
                     rotation: sortAndFilter.collapsed ? 0 : 180
-                    color: MoneroComponents.Style.defaultFontColor
+                    color: CoinevoComponents.Style.defaultFontColor
 
                     MouseArea {
                         anchors.fill: parent
@@ -149,7 +149,7 @@ Rectangle {
             Layout.rightMargin: sideMargin
             visible: sortAndFilter.collapsed
 
-            MoneroComponents.LineEdit {
+            CoinevoComponents.LineEdit {
                 id: searchInput
                 Layout.fillWidth: true
                 input.topPadding: 6
@@ -182,7 +182,7 @@ Rectangle {
             columns: 2
             columnSpacing: 20
 
-            MoneroComponents.DatePicker {
+            CoinevoComponents.DatePicker {
                 id: fromDatePicker
                 Layout.fillWidth: true
                 width: 100
@@ -196,7 +196,7 @@ Rectangle {
                 }
             }
 
-            MoneroComponents.DatePicker {
+            CoinevoComponents.DatePicker {
                 id: toDatePicker
                 Layout.fillWidth: true
                 width: 100
@@ -224,11 +224,11 @@ Rectangle {
                 Layout.preferredWidth: childrenRect.width + 38
                 Layout.preferredHeight: 20
 
-                MoneroComponents.TextPlain {
-                    font.family: MoneroComponents.Style.fontRegular.name
+                CoinevoComponents.TextPlain {
+                    font.family: CoinevoComponents.Style.fontRegular.name
                     font.pixelSize: 15
                     text: qsTr("Sort by") + ":" + translationManager.emptyString
-                    color: MoneroComponents.Style.defaultFontColor
+                    color: CoinevoComponents.Style.defaultFontColor
                     anchors.verticalCenter: parent.verticalCenter
                 }
             }
@@ -244,16 +244,16 @@ Rectangle {
                     clip: true
                     anchors.fill: parent
 
-                    MoneroComponents.TextPlain {
+                    CoinevoComponents.TextPlain {
                         id: sortBlockheightText
-                        font.family: MoneroComponents.Style.fontRegular.name
+                        font.family: CoinevoComponents.Style.fontRegular.name
                         font.pixelSize: 15
                         text: qsTr("Blockheight") + translationManager.emptyString
-                        color: root.sortBy === "blockheight" ? MoneroComponents.Style.defaultFontColor : MoneroComponents.Style.dimmedFontColor
+                        color: root.sortBy === "blockheight" ? CoinevoComponents.Style.defaultFontColor : CoinevoComponents.Style.dimmedFontColor
                         themeTransition: false
                     }
 
-                    MoneroEffects.ImageMask {
+                    CoinevoEffects.ImageMask {
                         height: 8
                         width: 12
                         visible: root.sortBy === "blockheight" ? true : false
@@ -261,7 +261,7 @@ Rectangle {
                         image: "qrc:///images/whiteDropIndicator.png"
                         fontAwesomeFallbackIcon: FontAwesome.arrowDown
                         fontAwesomeFallbackSize: 14
-                        color: MoneroComponents.Style.defaultFontColor
+                        color: CoinevoComponents.Style.defaultFontColor
                         rotation: {
                             if(root.sortBy === "blockheight"){
                                 return root.sortDirection ? 0 : 180
@@ -303,16 +303,16 @@ Rectangle {
                     clip: true
                     anchors.fill: parent
 
-                    MoneroComponents.TextPlain {
+                    CoinevoComponents.TextPlain {
                         id: sortDateText
-                        font.family: MoneroComponents.Style.fontRegular.name
+                        font.family: CoinevoComponents.Style.fontRegular.name
                         font.pixelSize: 15
                         text: qsTr("Date") + translationManager.emptyString
-                        color: root.sortBy === "timestamp" ? MoneroComponents.Style.defaultFontColor : MoneroComponents.Style.dimmedFontColor
+                        color: root.sortBy === "timestamp" ? CoinevoComponents.Style.defaultFontColor : CoinevoComponents.Style.dimmedFontColor
                         themeTransition: false
                     }
 
-                    MoneroEffects.ImageMask {
+                    CoinevoEffects.ImageMask {
                         height: 8
                         width: 12
                         visible: root.sortBy === "timestamp" ? true : false
@@ -320,7 +320,7 @@ Rectangle {
                         image: "qrc:///images/whiteDropIndicator.png"
                         fontAwesomeFallbackIcon: FontAwesome.arrowDown
                         fontAwesomeFallbackSize: 14
-                        color: MoneroComponents.Style.defaultFontColor
+                        color: CoinevoComponents.Style.defaultFontColor
                         rotation: {
                             if(root.sortBy === "timestamp"){
                                 return root.sortDirection ? 0 : 180
@@ -362,16 +362,16 @@ Rectangle {
                     clip: true
                     anchors.fill: parent
 
-                    MoneroComponents.TextPlain {
+                    CoinevoComponents.TextPlain {
                         id: sortAmountText
-                        font.family: MoneroComponents.Style.fontRegular.name
+                        font.family: CoinevoComponents.Style.fontRegular.name
                         font.pixelSize: 15
                         text: qsTr("Amount") + translationManager.emptyString
-                        color: root.sortBy === "amount" ? MoneroComponents.Style.defaultFontColor : MoneroComponents.Style.dimmedFontColor
+                        color: root.sortBy === "amount" ? CoinevoComponents.Style.defaultFontColor : CoinevoComponents.Style.dimmedFontColor
                         themeTransition: false
                     }
 
-                    MoneroEffects.ImageMask {
+                    CoinevoEffects.ImageMask {
                         height: 8
                         width: 12
                         visible: root.sortBy === "amount" ? true : false
@@ -379,7 +379,7 @@ Rectangle {
                         image: "qrc:///images/whiteDropIndicator.png"
                         fontAwesomeFallbackIcon: FontAwesome.arrowDown
                         fontAwesomeFallbackSize: 14
-                        color: MoneroComponents.Style.defaultFontColor
+                        color: CoinevoComponents.Style.defaultFontColor
                         rotation: {
                             if(root.sortBy === "amount"){
                                 return root.sortDirection ? 0 : 180
@@ -415,13 +415,13 @@ Rectangle {
                 visible: !sortAndFilter.collapsed
                 Layout.preferredHeight: 20
 
-                MoneroComponents.TextPlain {
+                CoinevoComponents.TextPlain {
                     // status message
-                    font.family: MoneroComponents.Style.fontRegular.name
+                    font.family: CoinevoComponents.Style.fontRegular.name
                     font.pixelSize: 15
                     text: root.historyStatusMessage
 
-                    color: MoneroComponents.Style.defaultFontColor
+                    color: CoinevoComponents.Style.defaultFontColor
                     anchors.verticalCenter: parent.verticalCenter
                 }
             }
@@ -443,11 +443,11 @@ Rectangle {
                     Layout.preferredWidth: childrenRect.width + 2
                     Layout.preferredHeight: 20
 
-                    MoneroComponents.TextPlain {
-                        font.family: MoneroComponents.Style.fontRegular.name
+                    CoinevoComponents.TextPlain {
+                        font.family: CoinevoComponents.Style.fontRegular.name
                         font.pixelSize: 15
                         text: qsTr("Page") + ":" + translationManager.emptyString
-                        color: MoneroComponents.Style.defaultFontColor
+                        color: CoinevoComponents.Style.defaultFontColor
                         anchors.verticalCenter: parent.verticalCenter
                     }
                 }
@@ -458,10 +458,10 @@ Rectangle {
                     Layout.leftMargin: 4
                     Layout.preferredHeight: 20
 
-                    MoneroComponents.TextPlain {
+                    CoinevoComponents.TextPlain {
                         id: paginationText
                         text: root.txPage + "/" + Math.ceil(root.txCount / root.txMax)
-                        color: MoneroComponents.Style.defaultFontColor
+                        color: CoinevoComponents.Style.defaultFontColor
                         anchors.verticalCenter: parent.verticalCenter
 
                         MouseArea {
@@ -470,8 +470,8 @@ Rectangle {
                             anchors.fill: parent
                             hoverEnabled: pages > 1
                             cursorShape: hoverEnabled ? Qt.PointingHandCursor : Qt.ArrowCursor
-                            onEntered: parent.color = MoneroComponents.Style.orange
-                            onExited: parent.color = MoneroComponents.Style.defaultFontColor
+                            onEntered: parent.color = CoinevoComponents.Style.orange
+                            onExited: parent.color = CoinevoComponents.Style.defaultFontColor
                             onClicked: {
                                 if(pages === 1)
                                     return;
@@ -501,7 +501,7 @@ Rectangle {
                     opacity: enabled ? 1.0 : 0.2
                     enabled: false
 
-                    MoneroEffects.ImageMask {
+                    CoinevoEffects.ImageMask {
                         id: prevIcon
                         anchors.verticalCenter: parent.verticalCenter
                         anchors.left: parent.left
@@ -510,7 +510,7 @@ Rectangle {
                         image: "qrc:///images/whiteDropIndicator.png"
                         fontAwesomeFallbackIcon: FontAwesome.arrowDown
                         fontAwesomeFallbackSize: 14
-                        color: MoneroComponents.Style.defaultFontColor
+                        color: CoinevoComponents.Style.defaultFontColor
                         rotation: 90
                     }
 
@@ -533,7 +533,7 @@ Rectangle {
                     opacity: enabled ? 1.0 : 0.2
                     enabled: false
 
-                    MoneroEffects.ImageMask {
+                    CoinevoEffects.ImageMask {
                         id: nextIcon
                         anchors.verticalCenter: parent.verticalCenter
                         anchors.right: parent.right
@@ -543,7 +543,7 @@ Rectangle {
                         fontAwesomeFallbackIcon: FontAwesome.arrowDown
                         fontAwesomeFallbackSize: 14
                         rotation: 270
-                        color: MoneroComponents.Style.defaultFontColor
+                        color: CoinevoComponents.Style.defaultFontColor
                     }
 
                     MouseArea {
@@ -578,7 +578,7 @@ Rectangle {
                 }
                 color: {
                     if(!collapsed) return "transparent"
-                    return MoneroComponents.Style.blackTheme ? "#06FFFFFF" : "#04000000"
+                    return CoinevoComponents.Style.blackTheme ? "#06FFFFFF" : "#04000000"
                 }
 
                 Rectangle {
@@ -630,8 +630,8 @@ Rectangle {
                                 Layout.fillWidth: true
                                 Layout.preferredHeight: 20
 
-                                MoneroComponents.TextPlain {
-                                    font.family: MoneroComponents.Style.fontRegular.name
+                                CoinevoComponents.TextPlain {
+                                    font.family: CoinevoComponents.Style.fontRegular.name
                                     font.pixelSize: 15
                                     text: {
                                         if (!isout) {
@@ -644,10 +644,10 @@ Rectangle {
                                         }
                                         return addressBookName;
                                     }
-                                    color: MoneroComponents.Style.historyHeaderTextColor
+                                    color: CoinevoComponents.Style.historyHeaderTextColor
                                     anchors.verticalCenter: parent.verticalCenter
-                                    themeTransitionBlackColor: MoneroComponents.Style._b_historyHeaderTextColor
-                                    themeTransitionWhiteColor: MoneroComponents.Style._w_historyHeaderTextColor
+                                    themeTransitionBlackColor: CoinevoComponents.Style._b_historyHeaderTextColor
+                                    themeTransitionWhiteColor: CoinevoComponents.Style._w_historyHeaderTextColor
                                 }
                             }
 
@@ -656,19 +656,19 @@ Rectangle {
                                 Layout.fillWidth: true
                                 Layout.preferredHeight: 20
 
-                                MoneroComponents.TextPlain {
-                                    font.family: MoneroComponents.Style.fontRegular.name
+                                CoinevoComponents.TextPlain {
+                                    font.family: CoinevoComponents.Style.fontRegular.name
                                     font.pixelSize: 15
                                     text: displayAmount
-                                    color: MoneroComponents.Style.defaultFontColor
+                                    color: CoinevoComponents.Style.defaultFontColor
                                     anchors.verticalCenter: parent.verticalCenter
 
                                     MouseArea {
                                         state: "copyable"
                                         anchors.fill: parent
                                         hoverEnabled: true
-                                        onEntered: parent.color = MoneroComponents.Style.orange
-                                        onExited: parent.color = MoneroComponents.Style.defaultFontColor
+                                        onEntered: parent.color = CoinevoComponents.Style.orange
+                                        onExited: parent.color = CoinevoComponents.Style.defaultFontColor
                                     }
                                 }
                             }
@@ -690,13 +690,13 @@ Rectangle {
                                 Layout.fillWidth: true
                                 Layout.preferredHeight: 20
 
-                                MoneroComponents.TextPlain {
-                                    font.family: MoneroComponents.Style.fontRegular.name
+                                CoinevoComponents.TextPlain {
+                                    font.family: CoinevoComponents.Style.fontRegular.name
                                     font.pixelSize: 15
                                     text: isout ? qsTr("Fee") : confirmationsRequired === 60 ? qsTr("Mined") : qsTr("Fee") + translationManager.emptyString
-                                    color: MoneroComponents.Style.historyHeaderTextColor
-                                    themeTransitionBlackColor: MoneroComponents.Style._b_historyHeaderTextColor
-                                    themeTransitionWhiteColor: MoneroComponents.Style._w_historyHeaderTextColor
+                                    color: CoinevoComponents.Style.historyHeaderTextColor
+                                    themeTransitionBlackColor: CoinevoComponents.Style._b_historyHeaderTextColor
+                                    themeTransitionWhiteColor: CoinevoComponents.Style._w_historyHeaderTextColor
                                     anchors.verticalCenter: parent.verticalCenter
                                 }
                             }
@@ -706,8 +706,8 @@ Rectangle {
                                 Layout.fillWidth: true
                                 Layout.preferredHeight: 20
 
-                                MoneroComponents.TextPlain {
-                                    font.family: MoneroComponents.Style.fontRegular.name
+                                CoinevoComponents.TextPlain {
+                                    font.family: CoinevoComponents.Style.fontRegular.name
                                     font.pixelSize: 15
                                     text: {
                                         if(!isout && confirmationsRequired === 60) return qsTr("Yes") + translationManager.emptyString;
@@ -715,15 +715,15 @@ Rectangle {
                                         return "-";
                                     }
 
-                                    color: MoneroComponents.Style.defaultFontColor
+                                    color: CoinevoComponents.Style.defaultFontColor
                                     anchors.verticalCenter: parent.verticalCenter
 
                                     MouseArea {
                                         state: "copyable"
                                         anchors.fill: parent
                                         hoverEnabled: true
-                                        onEntered: parent.color = MoneroComponents.Style.orange
-                                        onExited: parent.color = MoneroComponents.Style.defaultFontColor
+                                        onEntered: parent.color = CoinevoComponents.Style.orange
+                                        onExited: parent.color = CoinevoComponents.Style.defaultFontColor
                                     }
                                 }
                             }
@@ -751,13 +751,13 @@ Rectangle {
                                 Layout.fillWidth: true
                                 Layout.preferredHeight: 20
 
-                                MoneroComponents.TextPlain {
-                                    font.family: MoneroComponents.Style.fontRegular.name
+                                CoinevoComponents.TextPlain {
+                                    font.family: CoinevoComponents.Style.fontRegular.name
                                     font.pixelSize: 15
                                     text: qsTr("Blockheight") + translationManager.emptyString
-                                    color: MoneroComponents.Style.historyHeaderTextColor
-                                    themeTransitionBlackColor: MoneroComponents.Style._b_historyHeaderTextColor
-                                    themeTransitionWhiteColor: MoneroComponents.Style._w_historyHeaderTextColor
+                                    color: CoinevoComponents.Style.historyHeaderTextColor
+                                    themeTransitionBlackColor: CoinevoComponents.Style._b_historyHeaderTextColor
+                                    themeTransitionWhiteColor: CoinevoComponents.Style._w_historyHeaderTextColor
                                     anchors.verticalCenter: parent.verticalCenter
                                 }
                             }
@@ -767,20 +767,20 @@ Rectangle {
                                 Layout.fillWidth: true
                                 Layout.preferredHeight: 20
 
-                                MoneroComponents.TextPlain {
-                                    font.family: MoneroComponents.Style.fontRegular.name
+                                CoinevoComponents.TextPlain {
+                                    font.family: CoinevoComponents.Style.fontRegular.name
                                     font.pixelSize: 14
                                     text: blockheight > 0 ? blockheight : qsTr('Pending') + translationManager.emptyString;
 
-                                    color: MoneroComponents.Style.defaultFontColor
+                                    color: CoinevoComponents.Style.defaultFontColor
                                     anchors.verticalCenter: parent.verticalCenter
 
                                     MouseArea {
                                         state: "copyable"
                                         anchors.fill: parent
                                         hoverEnabled: true
-                                        onEntered: parent.color = MoneroComponents.Style.orange
-                                        onExited: parent.color = MoneroComponents.Style.defaultFontColor
+                                        onEntered: parent.color = CoinevoComponents.Style.orange
+                                        onExited: parent.color = CoinevoComponents.Style.defaultFontColor
                                     }
                                 }
                             }
@@ -802,13 +802,13 @@ Rectangle {
                                 Layout.fillWidth: true
                                 Layout.preferredHeight: 20
 
-                                MoneroComponents.TextPlain {
-                                    font.family: MoneroComponents.Style.fontRegular.name
+                                CoinevoComponents.TextPlain {
+                                    font.family: CoinevoComponents.Style.fontRegular.name
                                     font.pixelSize: 15
                                     text: qsTr("Confirmations") + translationManager.emptyString
-                                    color: MoneroComponents.Style.historyHeaderTextColor
-                                    themeTransitionBlackColor: MoneroComponents.Style._b_historyHeaderTextColor
-                                    themeTransitionWhiteColor: MoneroComponents.Style._w_historyHeaderTextColor
+                                    color: CoinevoComponents.Style.historyHeaderTextColor
+                                    themeTransitionBlackColor: CoinevoComponents.Style._b_historyHeaderTextColor
+                                    themeTransitionWhiteColor: CoinevoComponents.Style._w_historyHeaderTextColor
                                     anchors.verticalCenter: parent.verticalCenter
                                 }
                             }
@@ -818,20 +818,20 @@ Rectangle {
                                 Layout.fillWidth: true
                                 Layout.preferredHeight: 20
 
-                                MoneroComponents.TextPlain {
+                                CoinevoComponents.TextPlain {
                                     property bool confirmed: confirmations < confirmationsRequired ? false : true
-                                    font.family: MoneroComponents.Style.fontRegular.name
+                                    font.family: CoinevoComponents.Style.fontRegular.name
                                     font.pixelSize: 15
                                     text: confirmed ? confirmations : confirmations + "/" + confirmationsRequired
-                                    color: MoneroComponents.Style.defaultFontColor
+                                    color: CoinevoComponents.Style.defaultFontColor
                                     anchors.verticalCenter: parent.verticalCenter
 
                                     MouseArea {
                                         state: "copyable"
                                         anchors.fill: parent
                                         hoverEnabled: true
-                                        onEntered: parent.color = MoneroComponents.Style.orange
-                                        onExited: parent.color = MoneroComponents.Style.defaultFontColor
+                                        onEntered: parent.color = CoinevoComponents.Style.orange
+                                        onExited: parent.color = CoinevoComponents.Style.defaultFontColor
                                     }
                                 }
                             }
@@ -859,13 +859,13 @@ Rectangle {
                                 Layout.fillWidth: true
                                 Layout.preferredHeight: 20
 
-                                MoneroComponents.TextPlain {
-                                    font.family: MoneroComponents.Style.fontRegular.name
+                                CoinevoComponents.TextPlain {
+                                    font.family: CoinevoComponents.Style.fontRegular.name
                                     font.pixelSize: 15
                                     text: qsTr("Date")
-                                    color: MoneroComponents.Style.historyHeaderTextColor
-                                    themeTransitionBlackColor: MoneroComponents.Style._b_historyHeaderTextColor
-                                    themeTransitionWhiteColor: MoneroComponents.Style._w_historyHeaderTextColor
+                                    color: CoinevoComponents.Style.historyHeaderTextColor
+                                    themeTransitionBlackColor: CoinevoComponents.Style._b_historyHeaderTextColor
+                                    themeTransitionWhiteColor: CoinevoComponents.Style._w_historyHeaderTextColor
                                     anchors.verticalCenter: parent.verticalCenter
                                 }
                             }
@@ -875,12 +875,12 @@ Rectangle {
                                 Layout.fillWidth: true
                                 Layout.preferredHeight: 20
 
-                                MoneroComponents.TextPlain {
-                                    font.family: MoneroComponents.Style.fontRegular.name
+                                CoinevoComponents.TextPlain {
+                                    font.family: CoinevoComponents.Style.fontRegular.name
                                     font.pixelSize: 15
                                     text: persistentSettings.historyHumanDates ? dateHuman : dateTime
 
-                                    color: MoneroComponents.Style.defaultFontColor
+                                    color: CoinevoComponents.Style.defaultFontColor
                                     anchors.verticalCenter: parent.verticalCenter
 
                                     MouseArea {
@@ -888,13 +888,13 @@ Rectangle {
                                         anchors.fill: parent
                                         hoverEnabled: true
                                         onEntered: {
-                                            parent.color = MoneroComponents.Style.orange
+                                            parent.color = CoinevoComponents.Style.orange
                                             if (persistentSettings.historyHumanDates) {
                                                 parent.text = dateTime;
                                             }
                                         }
                                         onExited: {
-                                            parent.color = MoneroComponents.Style.defaultFontColor
+                                            parent.color = CoinevoComponents.Style.defaultFontColor
                                             if (persistentSettings.historyHumanDates) {
                                                 parent.text = dateHuman
                                             }
@@ -913,7 +913,7 @@ Rectangle {
                                 Layout.fillWidth: true
                                 Layout.preferredHeight: 60
 
-                                MoneroComponents.StandardButton {
+                                CoinevoComponents.StandardButton {
                                     id: btnDetails
                                     text: FontAwesome.info
                                     small: true
@@ -941,7 +941,7 @@ Rectangle {
                                     source: "qrc:///images/miningevo.png"
                                 }
 
-                                MoneroComponents.StandardButton {
+                                CoinevoComponents.StandardButton {
                                     visible: isout
                                     anchors.left: btnDetails.right
                                     anchors.leftMargin: 10
@@ -975,13 +975,13 @@ Rectangle {
                             Layout.fillWidth: true
                             Layout.preferredHeight: 20
 
-                            MoneroComponents.TextPlain {
-                                font.family: MoneroComponents.Style.fontRegular.name
+                            CoinevoComponents.TextPlain {
+                                font.family: CoinevoComponents.Style.fontRegular.name
                                 font.pixelSize: 15
                                 text: qsTr("Description") + translationManager.emptyString
-                                color: MoneroComponents.Style.historyHeaderTextColor
-                                themeTransitionBlackColor: MoneroComponents.Style._b_historyHeaderTextColor
-                                themeTransitionWhiteColor: MoneroComponents.Style._w_historyHeaderTextColor
+                                color: CoinevoComponents.Style.historyHeaderTextColor
+                                themeTransitionBlackColor: CoinevoComponents.Style._b_historyHeaderTextColor
+                                themeTransitionWhiteColor: CoinevoComponents.Style._w_historyHeaderTextColor
                                 anchors.verticalCenter: parent.verticalCenter
                             }
                         }
@@ -991,31 +991,31 @@ Rectangle {
                             Layout.fillWidth: true
                             Layout.preferredHeight: 20
 
-                            MoneroComponents.TextPlain {
+                            CoinevoComponents.TextPlain {
                                 id: txNoteText
-                                font.family: MoneroComponents.Style.fontRegular.name
+                                font.family: CoinevoComponents.Style.fontRegular.name
                                 font.pixelSize: 15
                                 text: tx_note !== "" ? tx_note : "-"
-                                color: MoneroComponents.Style.defaultFontColor
+                                color: CoinevoComponents.Style.defaultFontColor
                                 anchors.verticalCenter: parent.verticalCenter
 
                                 MouseArea {
                                     state: "copyable"
                                     anchors.fill: parent
                                     hoverEnabled: true
-                                    onEntered: parent.color = MoneroComponents.Style.orange
-                                    onExited: parent.color = MoneroComponents.Style.defaultFontColor
+                                    onEntered: parent.color = CoinevoComponents.Style.orange
+                                    onExited: parent.color = CoinevoComponents.Style.defaultFontColor
                                 }
                             }
 
-                            MoneroEffects.ImageMask {
+                            CoinevoEffects.ImageMask {
                                 anchors.top: parent.top
                                 anchors.left: txNoteText.right
                                 anchors.leftMargin: 12
                                 image: "qrc:///images/edit.svg"
                                 fontAwesomeFallbackIcon: FontAwesome.pencilSquare
                                 fontAwesomeFallbackSize: 22
-                                color: MoneroComponents.Style.defaultFontColor
+                                color: CoinevoComponents.Style.defaultFontColor
                                 opacity: 0.75
                                 width: 23
                                 height: 21
@@ -1043,13 +1043,13 @@ Rectangle {
                             Layout.fillWidth: true
                             Layout.preferredHeight: 20
 
-                            MoneroComponents.TextPlain {
-                                font.family: MoneroComponents.Style.fontRegular.name
+                            CoinevoComponents.TextPlain {
+                                font.family: CoinevoComponents.Style.fontRegular.name
                                 font.pixelSize: 15
                                 text: qsTr("Transaction ID") + translationManager.emptyString
-                                color: MoneroComponents.Style.historyHeaderTextColor
-                                themeTransitionBlackColor: MoneroComponents.Style._b_historyHeaderTextColor
-                                themeTransitionWhiteColor: MoneroComponents.Style._w_historyHeaderTextColor
+                                color: CoinevoComponents.Style.historyHeaderTextColor
+                                themeTransitionBlackColor: CoinevoComponents.Style._b_historyHeaderTextColor
+                                themeTransitionWhiteColor: CoinevoComponents.Style._w_historyHeaderTextColor
                                 anchors.verticalCenter: parent.verticalCenter
                             }
                         }
@@ -1059,19 +1059,19 @@ Rectangle {
                             Layout.fillWidth: true
                             Layout.preferredHeight: 20
 
-                            MoneroComponents.TextPlain {
-                                font.family: MoneroComponents.Style.fontRegular.name
+                            CoinevoComponents.TextPlain {
+                                font.family: CoinevoComponents.Style.fontRegular.name
                                 font.pixelSize: 15
                                 text: hash
-                                color: MoneroComponents.Style.defaultFontColor
+                                color: CoinevoComponents.Style.defaultFontColor
                                 anchors.verticalCenter: parent.verticalCenter
 
                                 MouseArea {
                                     state: "copyable"
                                     anchors.fill: parent
                                     hoverEnabled: true
-                                    onEntered: parent.color = MoneroComponents.Style.orange
-                                    onExited: parent.color = MoneroComponents.Style.defaultFontColor
+                                    onEntered: parent.color = CoinevoComponents.Style.orange
+                                    onExited: parent.color = CoinevoComponents.Style.defaultFontColor
                                 }
                             }
                         }
@@ -1087,13 +1087,13 @@ Rectangle {
                             Layout.fillWidth: true
                             Layout.preferredHeight: 20
 
-                            MoneroComponents.TextPlain {
-                                font.family: MoneroComponents.Style.fontRegular.name
+                            CoinevoComponents.TextPlain {
+                                font.family: CoinevoComponents.Style.fontRegular.name
                                 font.pixelSize: 15
                                 text: qsTr("Transaction key") + translationManager.emptyString
-                                color: MoneroComponents.Style.historyHeaderTextColor
-                                themeTransitionBlackColor: MoneroComponents.Style._b_historyHeaderTextColor
-                                themeTransitionWhiteColor: MoneroComponents.Style._w_historyHeaderTextColor
+                                color: CoinevoComponents.Style.historyHeaderTextColor
+                                themeTransitionBlackColor: CoinevoComponents.Style._b_historyHeaderTextColor
+                                themeTransitionWhiteColor: CoinevoComponents.Style._w_historyHeaderTextColor
                                 anchors.verticalCenter: parent.verticalCenter
                             }
                         }
@@ -1103,11 +1103,11 @@ Rectangle {
                             Layout.fillWidth: true
                             Layout.preferredHeight: 20
 
-                            MoneroComponents.TextPlain {
-                                font.family: MoneroComponents.Style.fontRegular.name
+                            CoinevoComponents.TextPlain {
+                                font.family: CoinevoComponents.Style.fontRegular.name
                                 font.pixelSize: 15
                                 text: qsTr("Click to reveal")
-                                color: MoneroComponents.Style.defaultFontColor
+                                color: CoinevoComponents.Style.defaultFontColor
                                 anchors.verticalCenter: parent.verticalCenter
                                 state: "txkey_hidden"
 
@@ -1115,8 +1115,8 @@ Rectangle {
                                     state: "copyable_txkey"
                                     anchors.fill: parent
                                     hoverEnabled: true
-                                    onEntered: parent.color = MoneroComponents.Style.orange
-                                    onExited: parent.color = MoneroComponents.Style.defaultFontColor
+                                    onEntered: parent.color = CoinevoComponents.Style.orange
+                                    onExited: parent.color = CoinevoComponents.Style.defaultFontColor
                                 }
                             }
                         }
@@ -1133,13 +1133,13 @@ Rectangle {
                             Layout.fillWidth: true
                             Layout.preferredHeight: 20
 
-                            MoneroComponents.TextPlain {
-                                font.family: MoneroComponents.Style.fontRegular.name
+                            CoinevoComponents.TextPlain {
+                                font.family: CoinevoComponents.Style.fontRegular.name
                                 font.pixelSize: 15
                                 text: qsTr("Address sent to") + translationManager.emptyString
-                                color: MoneroComponents.Style.historyHeaderTextColor
-                                themeTransitionBlackColor: MoneroComponents.Style._b_historyHeaderTextColor
-                                themeTransitionWhiteColor: MoneroComponents.Style._w_historyHeaderTextColor
+                                color: CoinevoComponents.Style.historyHeaderTextColor
+                                themeTransitionBlackColor: CoinevoComponents.Style._b_historyHeaderTextColor
+                                themeTransitionWhiteColor: CoinevoComponents.Style._w_historyHeaderTextColor
                                 anchors.verticalCenter: parent.verticalCenter
                             }
                         }
@@ -1150,8 +1150,8 @@ Rectangle {
                             Layout.fillWidth: true
                             Layout.preferredHeight: 20
 
-                            MoneroComponents.TextPlain {
-                                font.family: MoneroComponents.Style.fontRegular.name
+                            CoinevoComponents.TextPlain {
+                                font.family: CoinevoComponents.Style.fontRegular.name
                                 font.pixelSize: 15
                                 text: {
                                     if(isout && address !== ""){
@@ -1164,15 +1164,15 @@ Rectangle {
                                         return qsTr("Unknown recipient") + translationManager.emptyString;
                                 }
 
-                                color: MoneroComponents.Style.defaultFontColor
+                                color: CoinevoComponents.Style.defaultFontColor
                                 anchors.verticalCenter: parent.verticalCenter
 
                                 MouseArea {
                                     state: "copyable_address"
                                     anchors.fill: parent
                                     hoverEnabled: true
-                                    onEntered: parent.color = MoneroComponents.Style.orange
-                                    onExited: parent.color = MoneroComponents.Style.defaultFontColor
+                                    onEntered: parent.color = CoinevoComponents.Style.orange
+                                    onExited: parent.color = CoinevoComponents.Style.defaultFontColor
                                 }
                             }
                         }
@@ -1233,7 +1233,7 @@ Rectangle {
 
                     color: "transparent"
 
-                    MoneroEffects.ImageMask {
+                    CoinevoEffects.ImageMask {
                         id: collapsedIcon
                         anchors.top: parent.top
                         anchors.topMargin: 24
@@ -1242,7 +1242,7 @@ Rectangle {
                         width: 12
                         image: "qrc:///images/whiteDropIndicator.png"
                         rotation: delegate.collapsed ? 180 : 0
-                        color: MoneroComponents.Style.defaultFontColor
+                        color: CoinevoComponents.Style.defaultFontColor
                     }
                 }
 
@@ -1251,12 +1251,12 @@ Rectangle {
                     anchors.right: parent.right
                     anchors.top: parent.top
                     height: 1
-                    color: MoneroComponents.Style.appWindowBorderColor
+                    color: CoinevoComponents.Style.appWindowBorderColor
 
-                    MoneroEffects.ColorTransition {
+                    CoinevoEffects.ColorTransition {
                         targetObj: parent
-                        blackColor: MoneroComponents.Style._b_appWindowBorderColor
-                        whiteColor: MoneroComponents.Style._w_appWindowBorderColor
+                        blackColor: CoinevoComponents.Style._b_appWindowBorderColor
+                        whiteColor: CoinevoComponents.Style._w_appWindowBorderColor
                     }
                 }
 
@@ -1265,12 +1265,12 @@ Rectangle {
                     anchors.right: parent.right
                     anchors.top: parent.bottom
                     height: 1
-                    color: MoneroComponents.Style.appWindowBorderColor
+                    color: CoinevoComponents.Style.appWindowBorderColor
 
-                    MoneroEffects.ColorTransition {
+                    CoinevoEffects.ColorTransition {
                         targetObj: parent
-                        blackColor: MoneroComponents.Style._b_appWindowBorderColor
-                        whiteColor: MoneroComponents.Style._w_appWindowBorderColor
+                        blackColor: CoinevoComponents.Style._b_appWindowBorderColor
+                        whiteColor: CoinevoComponents.Style._w_appWindowBorderColor
                     }
                 }
             }
@@ -1283,20 +1283,20 @@ Rectangle {
             Layout.leftMargin: sideMargin
             Layout.rightMargin: sideMargin
 
-            MoneroComponents.TextPlain {
+            CoinevoComponents.TextPlain {
                 // status message
                 Layout.fillWidth: true
                 Layout.alignment: Qt.AlignHCenter
-                font.family: MoneroComponents.Style.fontRegular.name
+                font.family: CoinevoComponents.Style.fontRegular.name
                 font.pixelSize: 15
                 text: root.historyStatusMessage;
-                color: MoneroComponents.Style.dimmedFontColor
-                themeTransitionBlackColor: MoneroComponents.Style._b_dimmedFontColor
-                themeTransitionWhiteColor: MoneroComponents.Style._w_dimmedFontColor
+                color: CoinevoComponents.Style.dimmedFontColor
+                themeTransitionBlackColor: CoinevoComponents.Style._b_dimmedFontColor
+                themeTransitionWhiteColor: CoinevoComponents.Style._w_dimmedFontColor
             }
         }
 
-        MoneroComponents.CheckBox2 {
+        CoinevoComponents.CheckBox2 {
             id: showAdvancedCheckbox
             Layout.topMargin: 30
             Layout.bottomMargin: 20
@@ -1313,7 +1313,7 @@ Rectangle {
             Layout.rightMargin: sideMargin
             spacing: 20
 
-            MoneroComponents.CheckBox {
+            CoinevoComponents.CheckBox {
                 id: humanDatesCheckBox
                 checked: persistentSettings.historyHumanDates
                 onClicked: {
@@ -1323,7 +1323,7 @@ Rectangle {
                 text: qsTr("Human readable date format") + translationManager.emptyString
             }
 
-            MoneroComponents.StandardButton {
+            CoinevoComponents.StandardButton {
                 visible: !isIOS
                 small: true
                 text: qsTr("Export all history") + translationManager.emptyString

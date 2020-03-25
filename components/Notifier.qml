@@ -1,4 +1,4 @@
-// Copyright (c) 2017-2018, The Monero Project
+// Copyright (c) 2017-2018, The Coinevo Project
 // 
 // All rights reserved.
 // 
@@ -29,7 +29,7 @@
 import QtQuick 2.9
 import QtQuick.Controls 1.4
 import coinevoComponents.Wallet 1.0
-import "." as MoneroComponents
+import "." as CoinevoComponents
 
 Item {
     id: item
@@ -52,7 +52,7 @@ Item {
             backgroundVisible: false
             textFormat: TextEdit.AutoText
             anchors.fill: parent
-            font.family: MoneroComponents.Style.fontRegular.name
+            font.family: CoinevoComponents.Style.fontRegular.name
             font.pixelSize: 12
             textMargin: 20
             textColor: "white"

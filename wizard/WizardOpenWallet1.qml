@@ -1,4 +1,4 @@
-// Copyright (c) 2014-2019, The Monero Project
+// Copyright (c) 2014-2019, The Coinevo Project
 // 
 // All rights reserved.
 // 
@@ -36,8 +36,8 @@ import coinevoComponents.NetworkType 1.0
 
 import "../js/Wizard.js" as Wizard
 import "../components"
-import "../components" as MoneroComponents
-import "../components/effects/" as MoneroEffects
+import "../components" as CoinevoComponents
+import "../components/effects/" as CoinevoEffects
 
 Rectangle {
     id: wizardOpenWallet1
@@ -75,10 +75,10 @@ Rectangle {
                 columnSpacing: 20
                 columns: 2
 
-                MoneroComponents.TextPlain {
+                CoinevoComponents.TextPlain {
                     Layout.fillWidth: true
                     text: qsTr("Recently opened") + ":" + translationManager.emptyString
-                    font.family: MoneroComponents.Style.fontLight.name
+                    font.family: CoinevoComponents.Style.fontLight.name
                     font.pixelSize: 16
                 }
 
@@ -144,13 +144,13 @@ Rectangle {
                             height: 1
                             width: parent.width
                             anchors.top: parent.top
-                            color: MoneroComponents.Style.appWindowBorderColor
+                            color: CoinevoComponents.Style.appWindowBorderColor
                             visible: index <= 2  // top row
 
-                            MoneroEffects.ColorTransition {
+                            CoinevoEffects.ColorTransition {
                                 targetObj: parent
-                                blackColor: MoneroComponents.Style._b_appWindowBorderColor
-                                whiteColor: MoneroComponents.Style._w_appWindowBorderColor
+                                blackColor: CoinevoComponents.Style._b_appWindowBorderColor
+                                whiteColor: CoinevoComponents.Style._w_appWindowBorderColor
                             }
                         }
 
@@ -174,13 +174,13 @@ Rectangle {
                                     source: "qrc:///images/open-wallet-from-file.png"
                                     visible: {
                                         if(!isOpenGL) return true;
-                                        if(MoneroComponents.Style.blackTheme) return true;
+                                        if(CoinevoComponents.Style.blackTheme) return true;
                                         return false;
                                     }
                                 }
 
                                 Colorize {
-                                    visible: isOpenGL && !MoneroComponents.Style.blackTheme
+                                    visible: isOpenGL && !CoinevoComponents.Style.blackTheme
                                     anchors.fill: icon
                                     source: icon
                                     lightness: 0.65 // +65%
@@ -210,8 +210,8 @@ Rectangle {
                                     Layout.preferredHeight: 26
                                     Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
                                     Layout.fillWidth: true
-                                    font.family: MoneroComponents.Style.fontRegular.name
-                                    color: MoneroComponents.Style.defaultFontColor
+                                    font.family: CoinevoComponents.Style.fontRegular.name
+                                    color: CoinevoComponents.Style.defaultFontColor
                                     font.pixelSize: 16
 
                                     wrapMode: Text.WordWrap
@@ -226,8 +226,8 @@ Rectangle {
                                     Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
                                     Layout.fillWidth: true
                                     text: item.networkType
-                                    font.family: MoneroComponents.Style.fontRegular.name
-                                    color: MoneroComponents.Style.dimmedFontColor
+                                    font.family: CoinevoComponents.Style.fontRegular.name
+                                    color: CoinevoComponents.Style.dimmedFontColor
                                     font.pixelSize: 14
 
                                     wrapMode: Text.WordWrap
@@ -246,13 +246,13 @@ Rectangle {
                         Rectangle {
                             height: 1
                             width: parent.width
-                            color: MoneroComponents.Style.appWindowBorderColor
+                            color: CoinevoComponents.Style.appWindowBorderColor
                             anchors.bottom: parent.bottom
 
-                            MoneroEffects.ColorTransition {
+                            CoinevoEffects.ColorTransition {
                                 targetObj: parent
-                                blackColor: MoneroComponents.Style._b_appWindowBorderColor
-                                whiteColor: MoneroComponents.Style._w_appWindowBorderColor
+                                blackColor: CoinevoComponents.Style._b_appWindowBorderColor
+                                whiteColor: CoinevoComponents.Style._w_appWindowBorderColor
                             }
                         }
 
@@ -262,7 +262,7 @@ Rectangle {
                             cursorShape: Qt.PointingHandCursor
 
                             onEntered: {
-                                parent.color = MoneroComponents.Style.titleBarButtonHoverColor;
+                                parent.color = CoinevoComponents.Style.titleBarButtonHoverColor;
                             }
                             onExited: {
                                 parent.color = "transparent";

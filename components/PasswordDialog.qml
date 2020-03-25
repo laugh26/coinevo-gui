@@ -1,4 +1,4 @@
-// Copyright (c) 2014-2019, The Monero Project
+// Copyright (c) 2014-2019, The Coinevo Project
 //
 // All rights reserved.
 //
@@ -34,8 +34,8 @@ import QtQuick.Controls.Styles 1.4
 import QtQuick.Window 2.0
 import FontAwesome 1.0
 
-import "." as MoneroComponents
-import "effects/" as MoneroEffects
+import "." as CoinevoComponents
+import "effects/" as CoinevoEffects
 import "../js/Utils.js" as Utils
 
 Item {
@@ -146,9 +146,9 @@ Item {
                 Layout.fillWidth: true
 
                 font.pixelSize: 16
-                font.family: MoneroComponents.Style.fontLight.name
+                font.family: CoinevoComponents.Style.fontLight.name
 
-                color: MoneroComponents.Style.defaultFontColor
+                color: CoinevoComponents.Style.defaultFontColor
             }
 
             Label {
@@ -158,17 +158,17 @@ Item {
                 wrapMode: Text.Wrap
 
                 font.pixelSize: 14
-                font.family: MoneroComponents.Style.fontLight.name
+                font.family: CoinevoComponents.Style.fontLight.name
 
-                color: MoneroComponents.Style.warningColor
+                color: CoinevoComponents.Style.warningColor
             }
 
             Label {
                 id: errorTextLabel
                 visible: root.errorText || text !== ""
-                color: MoneroComponents.Style.errorColor
+                color: CoinevoComponents.Style.errorColor
                 font.pixelSize: 16
-                font.family: MoneroComponents.Style.fontLight.name
+                font.family: CoinevoComponents.Style.fontLight.name
                 Layout.fillWidth: true
                 wrapMode: Text.Wrap
             }
@@ -176,21 +176,21 @@ Item {
             Label {
                 id: capsLockTextLabel
                 visible: false
-                color: MoneroComponents.Style.errorColor
+                color: CoinevoComponents.Style.errorColor
                 font.pixelSize: 16
-                font.family: MoneroComponents.Style.fontLight.name
+                font.family: CoinevoComponents.Style.fontLight.name
                 Layout.fillWidth: true
                 wrapMode: Text.Wrap
                 text: qsTr("CAPSLOCKS IS ON.") + translationManager.emptyString;
             }
 
-            MoneroComponents.Input {
+            CoinevoComponents.Input {
                 id: passwordInput1
                 Layout.topMargin: 6
                 Layout.fillWidth: true
                 horizontalAlignment: TextInput.AlignLeft
                 verticalAlignment: TextInput.AlignVCenter
-                font.family: MoneroComponents.Style.fontLight.name
+                font.family: CoinevoComponents.Style.fontLight.name
                 font.pixelSize: 24
                 echoMode: TextInput.Password
                 KeyNavigation.tab: {
@@ -204,24 +204,24 @@ Item {
                 bottomPadding: 10
                 leftPadding: 10
                 topPadding: 10
-                color: MoneroComponents.Style.defaultFontColor
-                selectionColor: MoneroComponents.Style.textSelectionColor
-                selectedTextColor: MoneroComponents.Style.textSelectedColor
+                color: CoinevoComponents.Style.defaultFontColor
+                selectionColor: CoinevoComponents.Style.textSelectionColor
+                selectedTextColor: CoinevoComponents.Style.textSelectedColor
                 onTextChanged: capsLockTextLabel.visible = oshelper.isCapsLock();
 
                 background: Rectangle {
                     radius: 2
-                    color: MoneroComponents.Style.blackTheme ? "black" : "#A9FFFFFF"
-                    border.color: MoneroComponents.Style.inputBorderColorInActive
+                    color: CoinevoComponents.Style.blackTheme ? "black" : "#A9FFFFFF"
+                    border.color: CoinevoComponents.Style.inputBorderColorInActive
                     border.width: 1
 
-                    MoneroEffects.ColorTransition {
+                    CoinevoEffects.ColorTransition {
                         targetObj: parent
                         blackColor: "black"
                         whiteColor: "#A9FFFFFF"
                     }
 
-                    MoneroComponents.Label {
+                    CoinevoComponents.Label {
                         fontSize: 20
                         text: isHidden ? FontAwesome.eye : FontAwesome.eyeSlash
                         opacity: 0.7
@@ -293,19 +293,19 @@ Item {
                 Layout.fillWidth: true
 
                 font.pixelSize: 16
-                font.family: MoneroComponents.Style.fontLight.name
+                font.family: CoinevoComponents.Style.fontLight.name
 
-                color: MoneroComponents.Style.defaultFontColor
+                color: CoinevoComponents.Style.defaultFontColor
             }
 
-            MoneroComponents.Input {
+            CoinevoComponents.Input {
                 id: passwordInput2
                 visible: !passwordDialogMode
                 Layout.topMargin: 6
                 Layout.fillWidth: true
                 horizontalAlignment: TextInput.AlignLeft
                 verticalAlignment: TextInput.AlignVCenter
-                font.family: MoneroComponents.Style.fontLight.name
+                font.family: CoinevoComponents.Style.fontLight.name
                 font.pixelSize: 24
                 echoMode: TextInput.Password
                 KeyNavigation.tab: okButton
@@ -313,18 +313,18 @@ Item {
                 bottomPadding: 10
                 leftPadding: 10
                 topPadding: 10
-                color: MoneroComponents.Style.defaultFontColor
-                selectionColor: MoneroComponents.Style.textSelectionColor
-                selectedTextColor: MoneroComponents.Style.textSelectedColor
+                color: CoinevoComponents.Style.defaultFontColor
+                selectionColor: CoinevoComponents.Style.textSelectionColor
+                selectedTextColor: CoinevoComponents.Style.textSelectedColor
                 onTextChanged: capsLockTextLabel.visible = oshelper.isCapsLock();
 
                 background: Rectangle {
                     radius: 2
-                    border.color: MoneroComponents.Style.inputBorderColorInActive
+                    border.color: CoinevoComponents.Style.inputBorderColorInActive
                     border.width: 1
-                    color: MoneroComponents.Style.blackTheme ? "black" : "#A9FFFFFF"
+                    color: CoinevoComponents.Style.blackTheme ? "black" : "#A9FFFFFF"
 
-                    MoneroComponents.Label {
+                    CoinevoComponents.Label {
                         fontSize: 20
                         text: isHidden ? FontAwesome.eye : FontAwesome.eyeSlash
                         opacity: 0.7
@@ -392,7 +392,7 @@ Item {
                 Layout.topMargin: 16
                 Layout.alignment: Qt.AlignRight
 
-                MoneroComponents.StandardButton {
+                CoinevoComponents.StandardButton {
                     id: cancelButton
                     small: true
                     text: qsTr("Cancel") + translationManager.emptyString
@@ -409,7 +409,7 @@ Item {
                     }
                 }
 
-                MoneroComponents.StandardButton {
+                CoinevoComponents.StandardButton {
                     id: okButton
                     small: true
                     text: qsTr("Ok") + translationManager.emptyString

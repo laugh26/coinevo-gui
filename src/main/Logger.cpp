@@ -1,4 +1,4 @@
-// Copyright (c) 2014-2019, The Monero Project
+// Copyright (c) 2014-2019, The Coinevo Project
 //
 // All rights reserved.
 //
@@ -68,7 +68,7 @@ const QString getLogPath(const QString logPath)
     const QFileInfo fi(logPath);
 
     if(TailsOS::detect() && TailsOS::usePersistence)
-        return QDir::homePath() + "/Persistent/Monero/logs/" + defaultLogName;
+        return QDir::homePath() + "/Persistent/Coinevo/logs/" + defaultLogName;
 
     if(!logPath.isEmpty() && !fi.isDir())
         return fi.absoluteFilePath();
@@ -90,11 +90,11 @@ void messageHandler(QtMsgType type, const QMessageLogContext &context, const QSt
     const std::string msg = message.toStdString();
     switch(type)
     {
-        case QtDebugMsg: Monero::Wallet::debug(cat, msg); break;
-        case QtInfoMsg: Monero::Wallet::info(cat, msg); break;
-        case QtWarningMsg: Monero::Wallet::warning(cat, msg); break;
-        case QtCriticalMsg: Monero::Wallet::error(cat, msg); break;
-        case QtFatalMsg: Monero::Wallet::error(cat, msg); break;
+        case QtDebugMsg: Coinevo::Wallet::debug(cat, msg); break;
+        case QtInfoMsg: Coinevo::Wallet::info(cat, msg); break;
+        case QtWarningMsg: Coinevo::Wallet::warning(cat, msg); break;
+        case QtCriticalMsg: Coinevo::Wallet::error(cat, msg); break;
+        case QtFatalMsg: Coinevo::Wallet::error(cat, msg); break;
     }
 }
 

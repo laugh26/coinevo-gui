@@ -1,4 +1,4 @@
-// Copyright (c) 2014-2019, The Monero Project
+// Copyright (c) 2014-2019, The Coinevo Project
 //
 // All rights reserved.
 //
@@ -29,7 +29,7 @@
 #include "SubaddressAccount.h"
 #include <QDebug>
 
-SubaddressAccount::SubaddressAccount(Monero::SubaddressAccount *subaddressAccountImpl, QObject *parent)
+SubaddressAccount::SubaddressAccount(Coinevo::SubaddressAccount *subaddressAccountImpl, QObject *parent)
   : QObject(parent), m_subaddressAccountImpl(subaddressAccountImpl)
 {
     getAll();
@@ -50,7 +50,7 @@ void SubaddressAccount::getAll() const
     emit refreshFinished();
 }
 
-bool SubaddressAccount::getRow(int index, std::function<void (Monero::SubaddressAccountRow &)> callback) const
+bool SubaddressAccount::getRow(int index, std::function<void (Coinevo::SubaddressAccountRow &)> callback) const
 {
     QReadLocker locker(&m_lock);
 

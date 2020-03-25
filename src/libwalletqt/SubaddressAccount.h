@@ -1,4 +1,4 @@
-// Copyright (c) 2014-2019, The Monero Project
+// Copyright (c) 2014-2019, The Coinevo Project
 //
 // All rights reserved.
 //
@@ -42,7 +42,7 @@ class SubaddressAccount : public QObject
     Q_OBJECT
 public:
     Q_INVOKABLE void getAll() const;
-    Q_INVOKABLE bool getRow(int index, std::function<void (Monero::SubaddressAccountRow &)> callback) const;
+    Q_INVOKABLE bool getRow(int index, std::function<void (Coinevo::SubaddressAccountRow &)> callback) const;
     Q_INVOKABLE void addRow(const QString &label) const;
     Q_INVOKABLE void setLabel(quint32 accountIndex, const QString &label) const;
     Q_INVOKABLE void refresh() const;
@@ -55,11 +55,11 @@ signals:
 public slots:
 
 private:
-    explicit SubaddressAccount(Monero::SubaddressAccount * subaddressAccountImpl, QObject *parent);
+    explicit SubaddressAccount(Coinevo::SubaddressAccount * subaddressAccountImpl, QObject *parent);
     friend class Wallet;
     mutable QReadWriteLock m_lock;
-    Monero::SubaddressAccount * m_subaddressAccountImpl;
-    mutable QList<Monero::SubaddressAccountRow*> m_rows;
+    Coinevo::SubaddressAccount * m_subaddressAccountImpl;
+    mutable QList<Coinevo::SubaddressAccountRow*> m_rows;
 };
 
 #endif // SUBADDRESSACCOUNT_H

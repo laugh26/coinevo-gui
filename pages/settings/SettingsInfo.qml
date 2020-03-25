@@ -1,4 +1,4 @@
-// Copyright (c) 2014-2018, The Monero Project
+// Copyright (c) 2014-2018, The Coinevo Project
 // 
 // All rights reserved.
 // 
@@ -34,7 +34,7 @@ import QtQuick.Dialogs 1.2
 import "../../js/Wizard.js" as Wizard
 import "../../js/Utils.js" as Utils
 import "../../version.js" as Version
-import "../../components" as MoneroComponents
+import "../../components" as CoinevoComponents
 
 
 Rectangle {
@@ -65,14 +65,14 @@ Rectangle {
             columns: 2
             columnSpacing: 0
 
-            MoneroComponents.TextBlock {
+            CoinevoComponents.TextBlock {
                 font.pixelSize: 14
                 text: qsTr("GUI version: ") + translationManager.emptyString
             }
 
-            MoneroComponents.TextBlock {
+            CoinevoComponents.TextBlock {
                 font.pixelSize: 14
-                color: MoneroComponents.Style.dimmedFontColor
+                color: CoinevoComponents.Style.dimmedFontColor
                 text: Version.GUI_VERSION + " (Qt " + qtRuntimeVersion + ")" + translationManager.emptyString
             }
 
@@ -81,8 +81,8 @@ Rectangle {
                 Layout.topMargin: 2
                 Layout.bottomMargin: 2
                 Layout.fillWidth: true
-                color: MoneroComponents.Style.dividerColor
-                opacity: MoneroComponents.Style.dividerOpacity
+                color: CoinevoComponents.Style.dividerColor
+                opacity: CoinevoComponents.Style.dividerOpacity
             }
 
             Rectangle {
@@ -90,20 +90,20 @@ Rectangle {
                 Layout.topMargin: 2
                 Layout.bottomMargin: 2
                 Layout.fillWidth: true
-                color: MoneroComponents.Style.dividerColor
-                opacity: MoneroComponents.Style.dividerOpacity
+                color: CoinevoComponents.Style.dividerColor
+                opacity: CoinevoComponents.Style.dividerOpacity
             }
 
-            MoneroComponents.TextBlock {
-                id: guiMoneroVersion
+            CoinevoComponents.TextBlock {
+                id: guiCoinevoVersion
                 font.pixelSize: 14
-                text: qsTr("Embedded Monero version: ") + translationManager.emptyString
+                text: qsTr("Embedded Coinevo version: ") + translationManager.emptyString
             }
 
-            MoneroComponents.TextBlock {
+            CoinevoComponents.TextBlock {
                 font.pixelSize: 14
-                color: MoneroComponents.Style.dimmedFontColor
-                text: Version.GUI_MONERO_VERSION + translationManager.emptyString
+                color: CoinevoComponents.Style.dimmedFontColor
+                text: Version.GUI_COINEVO_VERSION + translationManager.emptyString
             }
 
             Rectangle {
@@ -111,8 +111,8 @@ Rectangle {
                 Layout.topMargin: 2
                 Layout.bottomMargin: 2
                 Layout.fillWidth: true
-                color: MoneroComponents.Style.dividerColor
-                opacity: MoneroComponents.Style.dividerOpacity
+                color: CoinevoComponents.Style.dividerColor
+                opacity: CoinevoComponents.Style.dividerOpacity
             }
 
             Rectangle {
@@ -120,19 +120,19 @@ Rectangle {
                 Layout.topMargin: 2
                 Layout.bottomMargin: 2
                 Layout.fillWidth: true
-                color: MoneroComponents.Style.dividerColor
-                opacity: MoneroComponents.Style.dividerOpacity
+                color: CoinevoComponents.Style.dividerColor
+                opacity: CoinevoComponents.Style.dividerOpacity
             }
 
-            MoneroComponents.TextBlock {
+            CoinevoComponents.TextBlock {
                 Layout.fillWidth: true
                 font.pixelSize: 14
                 text: qsTr("Wallet path: ") + translationManager.emptyString
             }
 
-            MoneroComponents.TextBlock {
+            CoinevoComponents.TextBlock {
                 Layout.fillWidth: true
-                color: MoneroComponents.Style.dimmedFontColor
+                color: CoinevoComponents.Style.dimmedFontColor
                 font.pixelSize: 14
                 property string walletPath: (isIOS ?  coinevoAccountsDir : "") + appWindow.walletPath()
                 text: "\
@@ -155,8 +155,8 @@ Rectangle {
                 Layout.topMargin: 2
                 Layout.bottomMargin: 2
                 Layout.fillWidth: true
-                color: MoneroComponents.Style.dividerColor
-                opacity: MoneroComponents.Style.dividerOpacity
+                color: CoinevoComponents.Style.dividerColor
+                opacity: CoinevoComponents.Style.dividerOpacity
             }
 
             Rectangle {
@@ -164,22 +164,22 @@ Rectangle {
                 Layout.topMargin: 2
                 Layout.bottomMargin: 2
                 Layout.fillWidth: true
-                color: MoneroComponents.Style.dividerColor
-                opacity: MoneroComponents.Style.dividerOpacity
+                color: CoinevoComponents.Style.dividerColor
+                opacity: CoinevoComponents.Style.dividerOpacity
             }
 
-            MoneroComponents.TextBlock {
+            CoinevoComponents.TextBlock {
                 id: restoreHeight
                 font.pixelSize: 14
                 textFormat: Text.RichText
                 text: (typeof currentWallet == "undefined") ? "" : qsTr("Wallet restore height: ") + translationManager.emptyString
             }
 
-            MoneroComponents.TextBlock {
+            CoinevoComponents.TextBlock {
                 id: restoreHeightText
                 Layout.fillWidth: true
                 textFormat: Text.RichText
-                color: MoneroComponents.Style.dimmedFontColor
+                color: CoinevoComponents.Style.dimmedFontColor
                 font.pixelSize: 14
                 property var style: "<style type='text/css'>a {cursor:pointer;text-decoration: none; color: #FF6C3C}</style>"
                 text: (currentWallet ? currentWallet.walletCreationHeight : "") + style + " <a href='#'> (%1)</a>".arg(qsTr("Change")) + translationManager.emptyString
@@ -245,8 +245,8 @@ Rectangle {
                 Layout.topMargin: 2
                 Layout.bottomMargin: 2
                 Layout.fillWidth: true
-                color: MoneroComponents.Style.dividerColor
-                opacity: MoneroComponents.Style.dividerOpacity
+                color: CoinevoComponents.Style.dividerColor
+                opacity: CoinevoComponents.Style.dividerOpacity
             }
 
             Rectangle {
@@ -254,19 +254,19 @@ Rectangle {
                 Layout.topMargin: 2
                 Layout.bottomMargin: 2
                 Layout.fillWidth: true
-                color: MoneroComponents.Style.dividerColor
-                opacity: MoneroComponents.Style.dividerOpacity
+                color: CoinevoComponents.Style.dividerColor
+                opacity: CoinevoComponents.Style.dividerOpacity
             }
 
-            MoneroComponents.TextBlock {
+            CoinevoComponents.TextBlock {
                 Layout.fillWidth: true
                 font.pixelSize: 14
                 text: qsTr("Wallet log path: ") + translationManager.emptyString
             }
 
-            MoneroComponents.TextBlock {
+            CoinevoComponents.TextBlock {
                 Layout.fillWidth: true
-                color: MoneroComponents.Style.dimmedFontColor
+                color: CoinevoComponents.Style.dimmedFontColor
                 font.pixelSize: 14
                 text: "\
                     <style type='text/css'>\
@@ -288,8 +288,8 @@ Rectangle {
                 Layout.topMargin: 2
                 Layout.bottomMargin: 2
                 Layout.fillWidth: true
-                color: MoneroComponents.Style.dividerColor
-                opacity: MoneroComponents.Style.dividerOpacity
+                color: CoinevoComponents.Style.dividerColor
+                opacity: CoinevoComponents.Style.dividerOpacity
             }
 
             Rectangle {
@@ -297,19 +297,19 @@ Rectangle {
                 Layout.topMargin: 2
                 Layout.bottomMargin: 2
                 Layout.fillWidth: true
-                color: MoneroComponents.Style.dividerColor
-                opacity: MoneroComponents.Style.dividerOpacity
+                color: CoinevoComponents.Style.dividerColor
+                opacity: CoinevoComponents.Style.dividerOpacity
             }
 
-            MoneroComponents.TextBlock {
+            CoinevoComponents.TextBlock {
                 Layout.fillWidth: true
                 font.pixelSize: 14
                 text: qsTr("Wallet mode: ") + translationManager.emptyString
             }
 
-            MoneroComponents.TextBlock {
+            CoinevoComponents.TextBlock {
                 Layout.fillWidth: true
-                color: MoneroComponents.Style.dimmedFontColor
+                color: CoinevoComponents.Style.dimmedFontColor
                 font.pixelSize: 14
                 text: walletModeString
             }
@@ -319,8 +319,8 @@ Rectangle {
                 Layout.topMargin: 2
                 Layout.bottomMargin: 2
                 Layout.fillWidth: true
-                color: MoneroComponents.Style.dividerColor
-                opacity: MoneroComponents.Style.dividerOpacity
+                color: CoinevoComponents.Style.dividerColor
+                opacity: CoinevoComponents.Style.dividerOpacity
             }
 
             Rectangle {
@@ -328,19 +328,19 @@ Rectangle {
                 Layout.topMargin: 2
                 Layout.bottomMargin: 2
                 Layout.fillWidth: true
-                color: MoneroComponents.Style.dividerColor
-                opacity: MoneroComponents.Style.dividerOpacity
+                color: CoinevoComponents.Style.dividerColor
+                opacity: CoinevoComponents.Style.dividerOpacity
             }
 
-            MoneroComponents.TextBlock {
+            CoinevoComponents.TextBlock {
                 Layout.fillWidth: true
                 font.pixelSize: 14
                 text: qsTr("Graphics mode: ") + translationManager.emptyString
             }
 
-            MoneroComponents.TextBlock {
+            CoinevoComponents.TextBlock {
                 Layout.fillWidth: true
-                color: MoneroComponents.Style.dimmedFontColor
+                color: CoinevoComponents.Style.dimmedFontColor
                 font.pixelSize: 14
                 text: isOpenGL ? "OpenGL" : "Low graphics mode"
             }
@@ -351,8 +351,8 @@ Rectangle {
                 Layout.topMargin: 2
                 Layout.bottomMargin: 2
                 Layout.fillWidth: true
-                color: MoneroComponents.Style.dividerColor
-                opacity: MoneroComponents.Style.dividerOpacity
+                color: CoinevoComponents.Style.dividerColor
+                opacity: CoinevoComponents.Style.dividerOpacity
             }
 
             Rectangle {
@@ -361,34 +361,34 @@ Rectangle {
                 Layout.topMargin: 2
                 Layout.bottomMargin: 2
                 Layout.fillWidth: true
-                color: MoneroComponents.Style.dividerColor
-                opacity: MoneroComponents.Style.dividerOpacity
+                color: CoinevoComponents.Style.dividerColor
+                opacity: CoinevoComponents.Style.dividerOpacity
             }
 
-            MoneroComponents.TextBlock {
+            CoinevoComponents.TextBlock {
                 visible: isTails
                 Layout.fillWidth: true
                 font.pixelSize: 14
                 text: qsTr("Tails: ") + translationManager.emptyString
             }
 
-            MoneroComponents.TextBlock {
+            CoinevoComponents.TextBlock {
                 visible: isTails
                 Layout.fillWidth: true
-                color: MoneroComponents.Style.dimmedFontColor
+                color: CoinevoComponents.Style.dimmedFontColor
                 font.pixelSize: 14
                 text: tailsUsePersistence ? qsTr("persistent") + translationManager.emptyString : qsTr("persistence disabled") + translationManager.emptyString;
             }
         }
 
         // Copy info to clipboard
-        MoneroComponents.StandardButton {
+        CoinevoComponents.StandardButton {
             small: true
             text: qsTr("Copy to clipboard") + translationManager.emptyString
             onClicked: {
                 var data = "";
                 data += "GUI version: " + Version.GUI_VERSION + " (Qt " + qtRuntimeVersion + ")";
-                data += "\nEmbedded Monero version: " + Version.GUI_MONERO_VERSION;
+                data += "\nEmbedded Coinevo version: " + Version.GUI_COINEVO_VERSION;
                 data += "\nWallet path: ";
 
                 var wallet_path = walletPath();

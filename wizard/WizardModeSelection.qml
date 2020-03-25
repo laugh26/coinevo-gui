@@ -1,4 +1,4 @@
-// Copyright (c) 2014-2019, The Monero Project
+// Copyright (c) 2014-2019, The Coinevo Project
 // 
 // All rights reserved.
 // 
@@ -32,7 +32,7 @@ import QtQuick.Layouts 1.2
 import QtQuick.Controls 2.0
 
 import "../js/Wizard.js" as Wizard
-import "../components" as MoneroComponents
+import "../components" as CoinevoComponents
 
 Rectangle {
     id: wizardModeSelection1
@@ -90,8 +90,8 @@ Rectangle {
                 Layout.topMargin: 5
                 Layout.bottomMargin: 10
                 Layout.fillWidth: true
-                color: MoneroComponents.Style.dividerColor
-                opacity: MoneroComponents.Style.dividerOpacity
+                color: CoinevoComponents.Style.dividerColor
+                opacity: CoinevoComponents.Style.dividerOpacity
             }
 
             WizardMenuItem {
@@ -120,8 +120,8 @@ Rectangle {
                 Layout.topMargin: 5
                 Layout.bottomMargin: 10
                 Layout.fillWidth: true
-                color: MoneroComponents.Style.dividerColor
-                opacity: MoneroComponents.Style.dividerOpacity
+                color: CoinevoComponents.Style.dividerColor
+                opacity: CoinevoComponents.Style.dividerOpacity
             }
 
             WizardMenuItem {

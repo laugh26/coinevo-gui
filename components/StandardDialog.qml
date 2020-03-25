@@ -1,4 +1,4 @@
-// Copyright (c) 2014-2018, The Monero Project
+// Copyright (c) 2014-2018, The Coinevo Project
 //
 // All rights reserved.
 //
@@ -33,8 +33,8 @@ import QtQuick.Layouts 1.1
 import QtQuick.Controls.Styles 1.4
 import QtQuick.Window 2.0
 
-import "../components" as MoneroComponents
-import "effects/" as MoneroEffects
+import "../components" as CoinevoComponents
+import "effects/" as CoinevoEffects
 
 Rectangle {
     id: root
@@ -58,15 +58,15 @@ Rectangle {
     signal closeCallback();
 
     // background
-    MoneroEffects.GradientBackground {
+    CoinevoEffects.GradientBackground {
         anchors.fill: parent
-        fallBackColor: MoneroComponents.Style.middlePanelBackgroundColor
-        initialStartColor: MoneroComponents.Style.middlePanelBackgroundGradientStart
-        initialStopColor: MoneroComponents.Style.middlePanelBackgroundGradientStop
-        blackColorStart: MoneroComponents.Style._b_middlePanelBackgroundGradientStart
-        blackColorStop: MoneroComponents.Style._b_middlePanelBackgroundGradientStop
-        whiteColorStart: MoneroComponents.Style._w_middlePanelBackgroundGradientStart
-        whiteColorStop: MoneroComponents.Style._w_middlePanelBackgroundGradientStop
+        fallBackColor: CoinevoComponents.Style.middlePanelBackgroundColor
+        initialStartColor: CoinevoComponents.Style.middlePanelBackgroundGradientStart
+        initialStopColor: CoinevoComponents.Style.middlePanelBackgroundGradientStop
+        blackColorStart: CoinevoComponents.Style._b_middlePanelBackgroundGradientStart
+        blackColorStop: CoinevoComponents.Style._b_middlePanelBackgroundGradientStop
+        whiteColorStart: CoinevoComponents.Style._w_middlePanelBackgroundGradientStart
+        whiteColorStop: CoinevoComponents.Style._w_middlePanelBackgroundGradientStop
         start: Qt.point(0, 0)
         end: Qt.point(height, width)
     }
@@ -108,11 +108,11 @@ Rectangle {
             Layout.topMargin: 14
             Layout.fillWidth: true
 
-            MoneroComponents.Label {
+            CoinevoComponents.Label {
                 id: dialogTitle
                 fontSize: 18
                 fontFamily: "Arial"
-                color: MoneroComponents.Style.defaultFontColor
+                color: CoinevoComponents.Style.defaultFontColor
             }
         }
 
@@ -134,13 +134,13 @@ Rectangle {
                     Layout.fillWidth: true
                     Layout.fillHeight: true
                     renderType: Text.QtRendering
-                    font.family: MoneroComponents.Style.fontLight.name
+                    font.family: CoinevoComponents.Style.fontLight.name
                     textFormat: TextEdit.AutoText
                     readOnly: true
                     font.pixelSize: 14
                     selectByMouse: false
                     wrapMode: TextEdit.Wrap
-                    color: MoneroComponents.Style.defaultFontColor
+                    color: CoinevoComponents.Style.defaultFontColor
 
                     MouseArea {
                         anchors.fill: parent
@@ -165,7 +165,7 @@ Rectangle {
             spacing: 60
             Layout.alignment: Qt.AlignHCenter
 
-            MoneroComponents.StandardButton {
+            CoinevoComponents.StandardButton {
                 id: cancelButton
                 text: qsTr("Cancel") + translationManager.emptyString
                 onClicked: {
@@ -174,7 +174,7 @@ Rectangle {
                 }
             }
 
-            MoneroComponents.StandardButton {
+            CoinevoComponents.StandardButton {
                 id: okButton
                 text: qsTr("OK") + translationManager.emptyString
                 KeyNavigation.tab: cancelButton
@@ -195,12 +195,12 @@ Rectangle {
         height: 48
         color: "transparent"
 
-        MoneroEffects.ImageMask {
+        CoinevoEffects.ImageMask {
             anchors.centerIn: parent
             width: 16
             height: 16
-            image: MoneroComponents.Style.titleBarCloseSource
-            color: MoneroComponents.Style.defaultFontColor
+            image: CoinevoComponents.Style.titleBarCloseSource
+            color: CoinevoComponents.Style.defaultFontColor
             opacity: 0.75
         }
 
@@ -219,7 +219,7 @@ Rectangle {
     // window borders
     Rectangle{
         width: 1
-        color: MoneroComponents.Style.grey
+        color: CoinevoComponents.Style.grey
         anchors.left: parent.left
         anchors.top: parent.top
         anchors.bottom: parent.bottom
@@ -227,7 +227,7 @@ Rectangle {
 
     Rectangle{
         width: 1
-        color: MoneroComponents.Style.grey
+        color: CoinevoComponents.Style.grey
         anchors.right: parent.right
         anchors.top: parent.top
         anchors.bottom: parent.bottom
@@ -235,7 +235,7 @@ Rectangle {
 
     Rectangle{
         height: 1
-        color: MoneroComponents.Style.grey
+        color: CoinevoComponents.Style.grey
         anchors.left: parent.left
         anchors.top: parent.top
         anchors.right: parent.right
@@ -243,7 +243,7 @@ Rectangle {
 
     Rectangle{
         height: 1
-        color: MoneroComponents.Style.grey
+        color: CoinevoComponents.Style.grey
         anchors.left: parent.left
         anchors.bottom: parent.bottom
         anchors.right: parent.right

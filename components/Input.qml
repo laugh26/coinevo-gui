@@ -1,4 +1,4 @@
-// Copyright (c) 2014-2018, The Monero Project
+// Copyright (c) 2014-2018, The Coinevo Project
 // 
 // All rights reserved.
 // 
@@ -29,24 +29,24 @@
 import QtQuick.Controls 2.0
 import QtQuick 2.9
 
-import "../components" as MoneroComponents
+import "../components" as CoinevoComponents
 
 TextField {
     id: textField
-    font.family: MoneroComponents.Style.fontRegular.name
+    font.family: CoinevoComponents.Style.fontRegular.name
     font.pixelSize: 18
     font.bold: true
     horizontalAlignment: TextInput.AlignLeft
     selectByMouse: true
-    color: MoneroComponents.Style.defaultFontColor
-    selectionColor: MoneroComponents.Style.textSelectionColor
-    selectedTextColor: MoneroComponents.Style.textSelectedColor
+    color: CoinevoComponents.Style.defaultFontColor
+    selectionColor: CoinevoComponents.Style.textSelectionColor
+    selectedTextColor: CoinevoComponents.Style.textSelectedColor
 
     background: Rectangle {
         color: "transparent"
     }
 
-    MoneroComponents.ContextMenu {
+    CoinevoComponents.ContextMenu {
         cursorShape: Qt.IBeamCursor
         onPaste: {
             textField.clear();

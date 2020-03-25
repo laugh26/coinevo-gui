@@ -1,4 +1,4 @@
-// Copyright (c) 2014-2018, The Monero Project
+// Copyright (c) 2014-2018, The Coinevo Project
 // 
 // All rights reserved.
 // 
@@ -31,7 +31,7 @@ import QtQuick.Layouts 1.1
 
 import FontAwesome 1.0
 import coinevoComponents.Wallet 1.0
-import "../components" as MoneroComponents
+import "../components" as CoinevoComponents
 
 Rectangle {
     id: item
@@ -109,30 +109,30 @@ Rectangle {
             height: 40
             width: 260
 
-            MoneroComponents.TextPlain {
+            CoinevoComponents.TextPlain {
                 id: statusText
                 anchors.left: parent.left
                 anchors.top: parent.top
                 anchors.topMargin: 0
-                font.family: MoneroComponents.Style.fontMedium.name
+                font.family: CoinevoComponents.Style.fontMedium.name
                 font.bold: true
                 font.pixelSize: 13
-                color: MoneroComponents.Style.dimmedFontColor
-                opacity: MoneroComponents.Style.blackTheme ? 0.65 : 0.5
+                color: CoinevoComponents.Style.dimmedFontColor
+                opacity: CoinevoComponents.Style.blackTheme ? 0.65 : 0.5
                 text: qsTr("Network status") + translationManager.emptyString
                 themeTransition: false
             }
 
-            MoneroComponents.TextPlain {
+            CoinevoComponents.TextPlain {
                 id: statusTextVal
                 anchors.left: parent.left
                 anchors.top: parent.top
                 anchors.topMargin: 14
-                font.family: MoneroComponents.Style.fontMedium.name
+                font.family: CoinevoComponents.Style.fontMedium.name
                 font.pixelSize: 20
-                color: MoneroComponents.Style.defaultFontColor
+                color: CoinevoComponents.Style.defaultFontColor
                 text: getConnectionStatusString(item.connected) + translationManager.emptyString
-                opacity: MoneroComponents.Style.blackTheme ? 1.0 : 0.7
+                opacity: CoinevoComponents.Style.blackTheme ? 1.0 : 0.7
                 themeTransition: false
 
                 MouseArea {
@@ -154,7 +154,7 @@ Rectangle {
                 anchors.left: statusTextVal.right
                 anchors.leftMargin: 16
                 anchors.verticalCenter: parent.verticalCenter
-                color: refreshMouseArea.containsMouse ?  MoneroComponents.Style.dimmedFontColor : MoneroComponents.Style.defaultFontColor
+                color: refreshMouseArea.containsMouse ?  CoinevoComponents.Style.dimmedFontColor : CoinevoComponents.Style.defaultFontColor
                 font.family: FontAwesome.fontFamilySolid
                 font.pixelSize: 24
                 font.styleName: "Solid"

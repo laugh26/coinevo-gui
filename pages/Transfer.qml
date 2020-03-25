@@ -1,4 +1,4 @@
-// Copyright (c) 2014-2019, The Monero Project
+// Copyright (c) 2014-2019, The Coinevo Project
 // 
 // All rights reserved.
 // 
@@ -35,7 +35,7 @@ import coinevoComponents.Wallet 1.0
 import coinevoComponents.NetworkType 1.0
 import FontAwesome 1.0
 import "../components"
-import "../components" as MoneroComponents
+import "../components" as CoinevoComponents
 import "." 1.0
 import "../js/TxUtils.js" as TxUtils
 
@@ -146,7 +146,7 @@ Rectangle {
       RowLayout {
           visible: root.warningContent !== ""
 
-          MoneroComponents.WarningBox {
+          CoinevoComponents.WarningBox {
               text: warningContent
               onLinkActivated: {
                   appWindow.startDaemon(appWindow.persistentSettings.daemonFlags);
@@ -157,7 +157,7 @@ Rectangle {
       RowLayout {
           visible: leftPanel.minutesToUnlock !== ""
 
-          MoneroComponents.WarningBox {
+          CoinevoComponents.WarningBox {
               text: qsTr("Spendable funds: %1 EVO. Please wait ~%2 minutes for your whole balance to become spendable.").arg(leftPanel.balanceUnlockedString).arg(leftPanel.minutesToUnlock)
           }
       }
@@ -292,8 +292,8 @@ Rectangle {
               inlineButton.text: FontAwesome.qrcode
               inlineButton.fontPixelSize: 22
               inlineButton.fontFamily: FontAwesome.fontFamily
-              inlineButton.textColor: MoneroComponents.Style.defaultFontColor
-              inlineButton.buttonColor: MoneroComponents.Style.orange
+              inlineButton.textColor: CoinevoComponents.Style.defaultFontColor
+              inlineButton.buttonColor: CoinevoComponents.Style.orange
               inlineButton.onClicked: {
                   cameraUi.state = "Capture"
                   cameraUi.qrcode_decoded.connect(updateFromQrCode)
@@ -348,7 +348,7 @@ Rectangle {
           }
       }
 
-      MoneroComponents.WarningBox {
+      CoinevoComponents.WarningBox {
           text: qsTr("Description field contents match long payment ID format. \
           Please don't paste long payment ID into description field, your funds might be lost.") + translationManager.emptyString;
           visible: warningLongPidDescription
@@ -417,7 +417,7 @@ Rectangle {
           }
       }
 
-      MoneroComponents.WarningBox {
+      CoinevoComponents.WarningBox {
           id: paymentIdWarningBox
           text: qsTr("Long payment IDs are obsolete. \
           Long payment IDs were not encrypted on the blockchain and would harm your privacy. \
@@ -425,7 +425,7 @@ Rectangle {
           visible: paymentIdCheckbox.checked || warningLongPidDescription
       }
 
-      MoneroComponents.WarningBox {
+      CoinevoComponents.WarningBox {
           id: sendButtonWarningBox
           text: root.sendButtonWarning
           visible: root.sendButtonWarning !== ""
@@ -637,7 +637,7 @@ Rectangle {
                 informationPopup.open();
             } else {
                 informationPopup.title = qsTr("Information") + translationManager.emptyString
-                informationPopup.text  = qsTr("Monero sent successfully") + translationManager.emptyString
+                informationPopup.text  = qsTr("Coinevo sent successfully") + translationManager.emptyString
                 informationPopup.icon  = StandardIcon.Information
                 informationPopup.onCloseCallback = null
                 informationPopup.open();

@@ -82,7 +82,7 @@ HEADERS += \
     src/qt/utils.h \
     src/qt/prices.h \
     src/qt/macoshelper.h \
-    src/qt/MoneroSettings.h \
+    src/qt/CoinevoSettings.h \
     src/qt/TailsOS.h
 
 SOURCES += src/main/main.cpp \
@@ -117,7 +117,7 @@ SOURCES += src/main/main.cpp \
     src/qt/KeysFiles.cpp \
     src/qt/utils.cpp \
     src/qt/prices.cpp \
-    src/qt/MoneroSettings.cpp \
+    src/qt/CoinevoSettings.cpp \
     src/qt/TailsOS.cpp
 
 CONFIG(DISABLE_PASS_STRENGTH_METER) {

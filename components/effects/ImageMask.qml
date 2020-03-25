@@ -1,4 +1,4 @@
-// Copyright (c) 2014-2019, The Monero Project
+// Copyright (c) 2014-2019, The Coinevo Project
 //
 // All rights reserved.
 //
@@ -29,7 +29,7 @@
 import QtQuick 2.9
 import QtGraphicalEffects 1.0
 
-import "../" as MoneroComponents
+import "../" as CoinevoComponents
 import FontAwesome 1.0
 
 Item {
@@ -44,7 +44,7 @@ Item {
     property string fontAwesomeFallbackStyle: "Solid"
     property int fontAwesomeFallbackSize: 16
     property double fontAwesomeFallbackOpacity: 0.8
-    property string fontAwesomeFallbackColor: MoneroComponents.Style.defaultFontColor
+    property string fontAwesomeFallbackColor: CoinevoComponents.Style.defaultFontColor
 
     property alias fontAwesomeFallback: fontAwesomeFallback
     property alias svgMask: svgMask

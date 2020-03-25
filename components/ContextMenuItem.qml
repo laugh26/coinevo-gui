@@ -3,7 +3,7 @@ import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.1
 
 import FontAwesome 1.0
-import "../components" as MoneroComponents
+import "../components" as CoinevoComponents
 
 MenuItem {
     id: menuItem
@@ -12,7 +12,7 @@ MenuItem {
     property alias glyphIcon: glyphIcon.text
 
     background: Rectangle {
-        color: MoneroComponents.Style.buttonBackgroundColorDisabledHover
+        color: CoinevoComponents.Style.buttonBackgroundColorDisabledHover
         opacity: mouse.containsMouse ? 1 : 0
 
         MouseArea {
@@ -35,15 +35,15 @@ MenuItem {
         Text {
             id: glyphIcon
 
-            color: MoneroComponents.Style.buttonTextColor
+            color: CoinevoComponents.Style.buttonTextColor
             font.family: glyphIconSolid ? FontAwesome.fontFamilySolid : FontAwesome.fontFamily
             font.pixelSize: 14
             font.styleName: glyphIconSolid ? "Solid" : "Regular"
         }
 
         Text {
-            color: MoneroComponents.Style.buttonTextColor
-            font.family: MoneroComponents.Style.fontRegular.name
+            color: CoinevoComponents.Style.buttonTextColor
+            font.family: CoinevoComponents.Style.fontRegular.name
             font.pixelSize: 14
             Layout.fillWidth: true
             text: menuItem.text

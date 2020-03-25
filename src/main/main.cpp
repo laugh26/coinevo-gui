@@ -1,4 +1,4 @@
-// Copyright (c) 2014-2018, The Monero Project
+// Copyright (c) 2014-2018, The Coinevo Project
 //
 // All rights reserved.
 //
@@ -65,7 +65,7 @@
 #include "qt/utils.h"
 #include "qt/TailsOS.h"
 #include "qt/KeysFiles.h"
-#include "qt/MoneroSettings.h"
+#include "qt/CoinevoSettings.h"
 #include "qt/prices.h"
 
 // IOS exclusions
@@ -77,7 +77,7 @@
 #include "QR-Code-scanner/QrCodeScanner.h"
 #endif
 
-#ifdef MONERO_GUI_STATIC
+#ifdef COINEVO_GUI_STATIC
 
 #include <QtPlugin>
 #if defined(Q_OS_OSX)
@@ -185,7 +185,7 @@ int main(int argc, char *argv[])
     // - Log file location
     // - QML Settings file location (coinevo-core.conf)
     // - Default wallets path
-    // Target directory is: ~/Persistent/Monero
+    // Target directory is: ~/Persistent/Coinevo
     if (isTails) {
         if (!TailsOS::detectDataPersistence())
             TailsOS::showDataPersistenceDisabledWarning();
@@ -201,9 +201,9 @@ int main(int argc, char *argv[])
     #endif
 
     if(isTails && TailsOS::usePersistence){
-        coinevoAccountsDir = QDir::homePath() + "/Persistent/Monero/wallets";
+        coinevoAccountsDir = QDir::homePath() + "/Persistent/Coinevo/wallets";
     } else if (!coinevoAccountsRootDir.empty()) {
-        coinevoAccountsDir = coinevoAccountsRootDir.at(0) + "/Monero/wallets";
+        coinevoAccountsDir = coinevoAccountsRootDir.at(0) + "/Coinevo/wallets";
     } else {
         qCritical() << "Error: accounts root directory could not be set";
         return 1;
@@ -228,19 +228,19 @@ int main(int argc, char *argv[])
     parser.addHelpOption();
     parser.process(app);
 
-    Monero::Utils::onStartup();
+    Coinevo::Utils::onStartup();
 
     // Log settings
     const QString logPath = getLogPath(parser.value(logPathOption));
-    Monero::Wallet::init(argv[0], "coinevo-wallet-gui", logPath.toStdString().c_str(), true);
+    Coinevo::Wallet::init(argv[0], "coinevo-wallet-gui", logPath.toStdString().c_str(), true);
     qInstallMessageHandler(messageHandler);
 
     // loglevel is configured in main.qml. Anything lower than
-    // qWarning is not shown here unless MONERO_LOG_LEVEL env var is set
+    // qWarning is not shown here unless COINEVO_LOG_LEVEL env var is set
     bool logLevelOk;
-    int logLevel = qEnvironmentVariableIntValue("MONERO_LOG_LEVEL", &logLevelOk);
-    if (logLevelOk && logLevel >= 0 && logLevel <= Monero::WalletManagerFactory::LogLevel_Max){
-        Monero::WalletManagerFactory::setLogLevel(logLevel);
+    int logLevel = qEnvironmentVariableIntValue("COINEVO_LOG_LEVEL", &logLevelOk);
+    if (logLevelOk && logLevel >= 0 && logLevel <= Coinevo::WalletManagerFactory::LogLevel_Max){
+        Coinevo::WalletManagerFactory::setLogLevel(logLevel);
     }
     qWarning().noquote() << "app startd" << "(log: " + logPath + ")";
 
@@ -297,7 +297,7 @@ int main(int argc, char *argv[])
     qmlRegisterType<clipboardAdapter>("coinevoComponents.Clipboard", 1, 0, "Clipboard");
 
     // Temporary Qt.labs.settings replacement
-    qmlRegisterType<MoneroSettings>("coinevoComponents.Settings", 1, 0, "MoneroSettings");
+    qmlRegisterType<CoinevoSettings>("coinevoComponents.Settings", 1, 0, "CoinevoSettings");
 
     qmlRegisterUncreatableType<Wallet>("coinevoComponents.Wallet", 1, 0, "Wallet", "Wallet can't be instantiated directly");
 

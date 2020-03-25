@@ -1,4 +1,4 @@
-// Copyright (c) 2014-2019, The Monero Project
+// Copyright (c) 2014-2019, The Coinevo Project
 // 
 // All rights reserved.
 // 
@@ -31,8 +31,8 @@ import QtQuick.Layouts 1.1
 import QtQuick.Controls 2.0
 import FontAwesome 1.0
 
-import "../../components" as MoneroComponents
-import "../../components/effects" as MoneroEffects
+import "../../components" as CoinevoComponents
+import "../../components/effects" as CoinevoEffects
 
 Rectangle{
     color: "transparent"
@@ -63,8 +63,8 @@ Rectangle{
                 anchors.left: parent.left
                 anchors.right: parent.right
                 height: 1
-                color: MoneroComponents.Style.dividerColor
-                opacity: MoneroComponents.Style.dividerOpacity
+                color: CoinevoComponents.Style.dividerColor
+                opacity: CoinevoComponents.Style.dividerOpacity
             }
 
             Rectangle {
@@ -72,7 +72,7 @@ Rectangle{
                 Layout.fillHeight: true
                 anchors.top: parent.top
                 anchors.bottom: parent.bottom
-                color: MoneroComponents.Style.blackTheme ? "white" : "darkgrey"
+                color: CoinevoComponents.Style.blackTheme ? "white" : "darkgrey"
                 width: 2
             }
 
@@ -92,25 +92,25 @@ Rectangle{
                     anchors.leftMargin: 16
                     anchors.verticalCenter: parent.verticalCenter
 
-                    MoneroComponents.Label {
+                    CoinevoComponents.Label {
                         fontSize: 32
                         text: FontAwesome.home
                         fontFamily: FontAwesome.fontFamilySolid
                         anchors.centerIn: parent
-                        fontColor: MoneroComponents.Style.defaultFontColor
+                        fontColor: CoinevoComponents.Style.defaultFontColor
                         styleName: "Solid"
                     }
                 }
 
-                MoneroComponents.TextPlain {
+                CoinevoComponents.TextPlain {
                     id: localNodeHeader
                     anchors.left: localNodeIcon.right
                     anchors.leftMargin: 14
                     anchors.top: parent.top
-                    color: MoneroComponents.Style.defaultFontColor
-                    opacity: MoneroComponents.Style.blackTheme ? 1.0 : 0.8
+                    color: CoinevoComponents.Style.defaultFontColor
+                    opacity: CoinevoComponents.Style.blackTheme ? 1.0 : 0.8
                     font.bold: true
-                    font.family: MoneroComponents.Style.fontRegular.name
+                    font.family: CoinevoComponents.Style.fontRegular.name
                     font.pixelSize: 16
                     text: qsTr("Local node") + translationManager.emptyString
                 }
@@ -121,8 +121,8 @@ Rectangle{
                     anchors.topMargin: 4
                     anchors.left: localNodeIcon.right
                     anchors.leftMargin: 14
-                    color: MoneroComponents.Style.dimmedFontColor
-                    font.family: MoneroComponents.Style.fontRegular.name
+                    color: CoinevoComponents.Style.dimmedFontColor
+                    font.family: CoinevoComponents.Style.fontRegular.name
                     font.pixelSize: 15
                     horizontalAlignment: TextInput.AlignLeft
                     wrapMode: Text.WordWrap;
@@ -162,8 +162,8 @@ Rectangle{
                 anchors.left: parent.left
                 anchors.right: parent.right
                 height: 1
-                color: MoneroComponents.Style.dividerColor
-                opacity: MoneroComponents.Style.dividerOpacity
+                color: CoinevoComponents.Style.dividerColor
+                opacity: CoinevoComponents.Style.dividerOpacity
             }
 
             Rectangle {
@@ -171,7 +171,7 @@ Rectangle{
                 Layout.fillHeight: true
                 anchors.top: parent.top
                 anchors.bottom: parent.bottom
-                color: MoneroComponents.Style.blackTheme ? "white" : "darkgrey"
+                color: CoinevoComponents.Style.blackTheme ? "white" : "darkgrey"
                 width: 2
             }
 
@@ -191,25 +191,25 @@ Rectangle{
                     anchors.leftMargin: 16
                     anchors.verticalCenter: parent.verticalCenter
 
-                    MoneroComponents.Label {
+                    CoinevoComponents.Label {
                         fontSize: 28
                         text: FontAwesome.cloud
                         fontFamily: FontAwesome.fontFamilySolid
                         styleName: "Solid"
                         anchors.centerIn: parent
-                        fontColor: MoneroComponents.Style.defaultFontColor
+                        fontColor: CoinevoComponents.Style.defaultFontColor
                     }
                 }
 
-                MoneroComponents.TextPlain {
+                CoinevoComponents.TextPlain {
                     id: remoteNodeHeader
                     anchors.left: remoteNodeIcon.right
                     anchors.leftMargin: 14
                     anchors.top: parent.top
-                    color: MoneroComponents.Style.defaultFontColor
-                    opacity: MoneroComponents.Style.blackTheme ? 1.0 : 0.8
+                    color: CoinevoComponents.Style.defaultFontColor
+                    opacity: CoinevoComponents.Style.blackTheme ? 1.0 : 0.8
                     font.bold: true
-                    font.family: MoneroComponents.Style.fontRegular.name
+                    font.family: CoinevoComponents.Style.fontRegular.name
                     font.pixelSize: 16
                     text: qsTr("Remote node") + translationManager.emptyString
                 }
@@ -220,14 +220,14 @@ Rectangle{
                     anchors.topMargin: 4
                     anchors.left: remoteNodeIcon.right
                     anchors.leftMargin: 14
-                    color: MoneroComponents.Style.dimmedFontColor
-                    font.family: MoneroComponents.Style.fontRegular.name
+                    color: CoinevoComponents.Style.dimmedFontColor
+                    font.family: CoinevoComponents.Style.fontRegular.name
                     font.pixelSize: 15
                     horizontalAlignment: TextInput.AlignLeft
                     wrapMode: Text.WordWrap;
                     leftPadding: 0
                     topPadding: 0
-                    text: qsTr("Uses a third-party server to connect to the Monero network. Less secure, but easier on your computer.") + translationManager.emptyString
+                    text: qsTr("Uses a third-party server to connect to the Coinevo network. Less secure, but easier on your computer.") + translationManager.emptyString
                     width: parent.width - (remoteNodeIcon.width + remoteNodeIcon.anchors.leftMargin + anchors.leftMargin)
 
                     // @TODO: Legacy. Remove after Qt 5.8.
@@ -255,8 +255,8 @@ Rectangle{
                 anchors.right: parent.right
                 anchors.bottom: parent.bottom
                 height: 1
-                color: MoneroComponents.Style.dividerColor
-                opacity: MoneroComponents.Style.dividerOpacity
+                color: CoinevoComponents.Style.dividerColor
+                opacity: CoinevoComponents.Style.dividerOpacity
             }
         }
 
@@ -268,13 +268,13 @@ Rectangle{
             Layout.topMargin: 20
             visible: persistentSettings.useRemoteNode
 
-            MoneroComponents.WarningBox {
+            CoinevoComponents.WarningBox {
                 Layout.topMargin: 26
                 Layout.bottomMargin: 6
-                text: qsTr("To find a remote node, type 'Monero remote node' into your favorite search engine. Please ensure the node is run by a trusted third-party.") + translationManager.emptyString
+                text: qsTr("To find a remote node, type 'Coinevo remote node' into your favorite search engine. Please ensure the node is run by a trusted third-party.") + translationManager.emptyString
             }
 
-            MoneroComponents.RemoteNodeEdit {
+            CoinevoComponents.RemoteNodeEdit {
                 id: remoteNodeEdit
                 Layout.minimumWidth: 100
                 placeholderFontSize: 15
@@ -301,7 +301,7 @@ Rectangle{
                 columns: 2
                 columnSpacing: 32
 
-                MoneroComponents.LineEdit {
+                CoinevoComponents.LineEdit {
                     id: daemonUsername
                     Layout.fillWidth: true
                     labelText: qsTr("Daemon username") + translationManager.emptyString
@@ -312,7 +312,7 @@ Rectangle{
                     fontSize: 15
                 }
 
-                MoneroComponents.LineEdit {
+                CoinevoComponents.LineEdit {
                     id: daemonPassword
                     Layout.fillWidth: true
                     labelText: qsTr("Daemon password") + translationManager.emptyString
@@ -325,7 +325,7 @@ Rectangle{
                 }
             }
 
-            MoneroComponents.CheckBox {
+            CoinevoComponents.CheckBox {
                 id: setTrustedDaemonCheckBox
                 checked: persistentSettings.is_trusted_daemon
                 onClicked: {
@@ -335,7 +335,7 @@ Rectangle{
                 text: qsTr("Mark as Trusted Daemon") + translationManager.emptyString
             }
 
-            MoneroComponents.StandardButton {
+            CoinevoComponents.StandardButton {
                 id: btnConnectRemote
                 enabled: remoteNodeEdit.isValid()
                 small: true
@@ -360,7 +360,7 @@ Rectangle{
             Layout.topMargin: 40
             visible: !persistentSettings.useRemoteNode
 
-            MoneroComponents.StandardButton {
+            CoinevoComponents.StandardButton {
                 small: true
                 text: (appWindow.daemonRunning ? qsTr("Stop daemon") : qsTr("Start daemon")) + translationManager.emptyString
                 onClicked: {
@@ -374,7 +374,7 @@ Rectangle{
             }
 
             RowLayout {
-                MoneroComponents.LineEditMulti {
+                CoinevoComponents.LineEditMulti {
                     id: blockchainFolder
                     Layout.preferredWidth: 200
                     Layout.fillWidth: true
@@ -402,7 +402,7 @@ Rectangle{
                 }
             }
 
-            MoneroComponents.LineEditMulti {
+            CoinevoComponents.LineEditMulti {
                 id: daemonFlags
                 Layout.fillWidth: true
                 labelFontSize: 14
@@ -422,7 +422,7 @@ Rectangle{
                 ColumnLayout {
                     Layout.fillWidth: true
 
-                    MoneroComponents.RemoteNodeEdit {
+                    CoinevoComponents.RemoteNodeEdit {
                         id: bootstrapNodeEdit
                         Layout.minimumWidth: 100
                         Layout.bottomMargin: 20

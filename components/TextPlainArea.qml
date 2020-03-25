@@ -1,15 +1,15 @@
 import QtQuick 2.9
 import QtQuick.Controls 2.0
 
-import "." as MoneroComponents
+import "." as CoinevoComponents
 
 TextArea {
     id: textArea
     property bool themeTransition: true
     property string colorWhiteTheme: ""
     property string colorBlackTheme: ""
-    color: MoneroComponents.Style.defaultFontColor
-    font.family: MoneroComponents.Style.fontRegular.name
+    color: CoinevoComponents.Style.defaultFontColor
+    font.family: CoinevoComponents.Style.fontRegular.name
     font.pixelSize: 14
     selectByMouse: false
     wrapMode: Text.WordWrap;
@@ -22,20 +22,20 @@ TextArea {
     states: [
         State {
             name: "black";
-            when: textArea.themeTransition && MoneroComponents.Style.blackTheme
+            when: textArea.themeTransition && CoinevoComponents.Style.blackTheme
             PropertyChanges {
                 target: textArea
                 color: {
-                    return textArea.colorBlackTheme ? textArea.colorBlackTheme : MoneroComponents.Style._b_defaultFontColor
+                    return textArea.colorBlackTheme ? textArea.colorBlackTheme : CoinevoComponents.Style._b_defaultFontColor
                 }
             }
         }, State {
             name: "white";
-            when: textArea.themeTransition && !MoneroComponents.Style.blackTheme
+            when: textArea.themeTransition && !CoinevoComponents.Style.blackTheme
             PropertyChanges {
                 target: textArea
                 color: {
-                    return textArea.colorWhiteTheme ? textArea.colorWhiteTheme : MoneroComponents.Style._w_defaultFontColor
+                    return textArea.colorWhiteTheme ? textArea.colorWhiteTheme : CoinevoComponents.Style._w_defaultFontColor
                 }
             }
         }

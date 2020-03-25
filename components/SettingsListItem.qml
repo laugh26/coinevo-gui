@@ -1,7 +1,7 @@
 import QtQuick 2.9
 import QtQuick.Layouts 1.1
 
-import "../components" as MoneroComponents
+import "../components" as CoinevoComponents
 
 ColumnLayout {
     property alias buttonText: button.text
@@ -18,8 +18,8 @@ ColumnLayout {
         Layout.preferredHeight: 1
         Layout.fillWidth: true
         Layout.bottomMargin: 8
-        color: MoneroComponents.Style.dividerColor
-        opacity: MoneroComponents.Style.dividerOpacity
+        color: CoinevoComponents.Style.dividerColor
+        opacity: CoinevoComponents.Style.dividerOpacity
     }
 
     RowLayout {
@@ -31,29 +31,29 @@ ColumnLayout {
             Layout.alignment: Qt.AlignVCenter
             spacing: 0
 
-            MoneroComponents.TextPlain {
+            CoinevoComponents.TextPlain {
                 id: title
                 Layout.fillWidth: true
                 Layout.preferredHeight: 20
                 Layout.topMargin: 8
-                color: MoneroComponents.Style.defaultFontColor
-                opacity: MoneroComponents.Style.blackTheme ? 1.0 : 0.8
+                color: CoinevoComponents.Style.defaultFontColor
+                opacity: CoinevoComponents.Style.blackTheme ? 1.0 : 0.8
                 font.bold: true
-                font.family: MoneroComponents.Style.fontRegular.name
+                font.family: CoinevoComponents.Style.fontRegular.name
                 font.pixelSize: 16
             }
 
-            MoneroComponents.TextPlainArea {
+            CoinevoComponents.TextPlainArea {
                 id: description
-                color: MoneroComponents.Style.dimmedFontColor
-                colorBlackTheme: MoneroComponents.Style._b_dimmedFontColor
-                colorWhiteTheme: MoneroComponents.Style._w_dimmedFontColor
+                color: CoinevoComponents.Style.dimmedFontColor
+                colorBlackTheme: CoinevoComponents.Style._b_dimmedFontColor
+                colorWhiteTheme: CoinevoComponents.Style._w_dimmedFontColor
                 Layout.fillWidth: true
                 horizontalAlignment: TextInput.AlignLeft
             }
         }
 
-        MoneroComponents.StandardButton {
+        CoinevoComponents.StandardButton {
             id: button
             small: true
             onClicked: {

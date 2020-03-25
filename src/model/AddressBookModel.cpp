@@ -1,4 +1,4 @@
-// Copyright (c) 2014-2019, The Monero Project
+// Copyright (c) 2014-2019, The Coinevo Project
 //
 // All rights reserved.
 //
@@ -56,7 +56,7 @@ QVariant AddressBookModel::data(const QModelIndex &index, int role) const
 {
     QVariant result;
 
-    bool found = m_addressBook->getRow(index.row(), [&result, &role](const Monero::AddressBookRow &row) {
+    bool found = m_addressBook->getRow(index.row(), [&result, &role](const Coinevo::AddressBookRow &row) {
         switch (role) {
         case AddressBookAddressRole:
             result = QString::fromStdString(row.getAddress());

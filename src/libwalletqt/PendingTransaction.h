@@ -1,4 +1,4 @@
-// Copyright (c) 2014-2019, The Monero Project
+// Copyright (c) 2014-2019, The Coinevo Project
 //
 // All rights reserved.
 //
@@ -35,7 +35,7 @@
 
 #include <wallet/api/wallet2_api.h>
 
-//namespace Monero {
+//namespace Coinevo {
 //class PendingTransaction;
 //}
 
@@ -53,16 +53,16 @@ class PendingTransaction : public QObject
 
 public:
     enum Status {
-        Status_Ok       = Monero::PendingTransaction::Status_Ok,
-        Status_Error    = Monero::PendingTransaction::Status_Error,
-        Status_Critical    = Monero::PendingTransaction::Status_Critical
+        Status_Ok       = Coinevo::PendingTransaction::Status_Ok,
+        Status_Error    = Coinevo::PendingTransaction::Status_Error,
+        Status_Critical    = Coinevo::PendingTransaction::Status_Critical
     };
     Q_ENUM(Status)
 
     enum Priority {
-        Priority_Low    = Monero::PendingTransaction::Priority_Low,
-        Priority_Medium = Monero::PendingTransaction::Priority_Medium,
-        Priority_High   = Monero::PendingTransaction::Priority_High
+        Priority_Low    = Coinevo::PendingTransaction::Priority_Low,
+        Priority_Medium = Coinevo::PendingTransaction::Priority_Medium,
+        Priority_High   = Coinevo::PendingTransaction::Priority_High
     };
     Q_ENUM(Priority)
 
@@ -79,11 +79,11 @@ public:
     Q_INVOKABLE void setFilename(const QString &fileName);
 
 private:
-    explicit PendingTransaction(Monero::PendingTransaction * pt, QObject *parent = 0);
+    explicit PendingTransaction(Coinevo::PendingTransaction * pt, QObject *parent = 0);
 
 private:
     friend class Wallet;
-    Monero::PendingTransaction * m_pimpl;
+    Coinevo::PendingTransaction * m_pimpl;
     QString m_fileName;
 };
 
